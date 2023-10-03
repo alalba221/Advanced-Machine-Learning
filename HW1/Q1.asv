@@ -1,0 +1,46 @@
+p_list = [10,100,1000,2000];
+
+n = 100;
+
+
+timer1=[];
+timer2=[];
+
+
+for p = p_list
+    A = rand(n,p);
+    Ip = eye(p);
+    In = eye(n);
+
+    left = @()Left(A,Ip);
+    right = @()Right(A,In);
+    %timeit(left)
+    timer1 = [timer1;timeit(left)];
+    timer2 = [timer2;timeit(right)];
+end
+
+
+x = p_;
+y1 = sin(x);
+plot(x,y1)
+title('Combine Plots')
+
+hold on
+
+y2 = sin(x/2);
+plot(x,y2)
+
+y3 = 2*sin(x);
+scatter(x,y3) 
+
+hold off
+
+function Left(A,Ip)
+    lambda = 1.0;
+    inv((A'*A + Ip.*lambda))*A';
+end
+
+function Right(A,In)
+    lambda = 1.0;
+    A'*(inv(A*A' + In.*lambda));
+end
