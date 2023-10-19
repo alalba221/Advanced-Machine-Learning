@@ -56,7 +56,7 @@
 \pagestyle{plain}
 
 \title{{\bf Homework Set 1, CPSC 8420}}
-\author{\Large\underline{LastName, FirstName}}
+\author{\Large\underline{Zhang, Yue}}
 \date{\textbf{\Large\textcolor{red}{Due 10/05/2023, 11:59PM EST}}}
 
 \begin{document}
@@ -121,6 +121,18 @@ we can get
 where
 $$\mtx{M} =  (\mI^T\otimes\mA)+(\mC^T\otimes\mI)$$
 \subsection{Verification}
+\mfile{q2.m}
+$$erro =
+1.0e-14 *[
+-0.0111
+-0.2331
+-0.6550
+-0.1443
+ 0.1998
+-0.0666
+-0.1762
+ 0.0444
+ 0.2220]$$
 \vspace{4cm}
 
 \section{Shrinkage Methods}
@@ -167,7 +179,8 @@ We need to split it into two cases: one for positive $\hat{\bm{\beta}}_\lambda^{
 		\end{aligned}
 	\right.
 \end{equation}
-\subsection{Subset vs. LR}
+\subsection{Subset: \textcolor{red}{the constrain of subset method is not a convex set}} 
+
 We need to split it into two cases: one for taking the $i$th feature, then the corresponding element in 
 $\hat{\bm{\beta}}_\lambda^{Subset}$ equals to $1$,  
 and one for not ,which means its corresponding element in $\hat{\bm{\beta}}_\lambda^{Subset}$ equals to $0$
@@ -209,7 +222,7 @@ except feature 4, which is binary. However, we will treat this like any other co
 	offset, w0): $[26.11, -0.58, 3.02,\dots,-0.21, -0.27, -1.16]$.
 	\begin{enumerate}
 		\item Code
-		\mfile{q2.m}
+		\mfile{q4_2.m}
 		\item Figure
 		\begin{figure}[h!]
 			\centering
@@ -240,7 +253,7 @@ this function to train (by least squares) models with degrees 1 to 6. Use all th
 the training and test sets vs degree. You should get a plot like Figure 1(b). Turn in your plot and code. Explain
 why the test error decreases and then increases with degree, and why the train error decreases with degree.
 	\begin{enumerate}
-		\item Code \mfile{q3.m}
+		\item Code \mfile{q4_3.m}
 		\item Figure
 		\begin{figure}[h!]
 			\centering
@@ -259,19 +272,44 @@ Use all the training data. Plot the MSE on the training and test sets vs $log_{1
 Figure 1(c). Turn in your plot and code. Explain why the test error goes down and then up with increasing $\lambda$,
 and why the train error goes up with increasing $\lambda$.
 	\begin{enumerate}
-		\item Code \mfile{q4.m}
+		\item Code \mfile{q4_4.m}
 		\item Figure
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=0.5\linewidth]{Q44.png}
 			\caption{Q4-4}
 			\label{fig:Q4_4}
-		\end{figure}:
+		\end{figure}
 		See Figure \ref{fig:Q4_4}
-		\item Testing Error: 
-		\item Training Error
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.8\linewidth]{q441.png}
+			\caption{}
+			\label{fig:Q4_4_1}
+		\end{figure}
+		\item Training Error:\\
+		See Figure (\ref{fig:Q4_4_1}),
+		As $\lambda$ increases, $\beta^T\beta$ decreases. 
+		It leads to the constraint area becomes smaller and smaller. 
+		The optimal solution we can find moves farther away from the center of the contour. 
+		\item Testing Error: \\
+		The initial decrease is because of the reduction in variance by introducting regulariztion term. 
+		The reason for the subsequent increase is the same as the training error above.
+		
 	\end{enumerate}
 \item We turn to Lasso method with objective $\frac{1}{2}\|\mX \beta-y\|^2+\lambda\|\beta\|_1$ where $\lambda$ varies in: $$lambdas=[logspace(-10,10,10)]$$ and we make use of all training samples with no feature expansion. Please plot the changes of $\beta$ with $\lambda$ changes.
+\begin{enumerate}
+	\item Code:\\
+	\mfile{q4_5.m}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.8\linewidth]{q45.png}
+		\caption{}
+		\label{fig:Q4_5}
+	\end{figure}
+	\item Figure: See Figure(\ref{fig:Q4_5})
+\end{enumerate}
 \end{enumerate}
 
 %Why might we prefer to minimize the sum of absolute residuals instead of the residual sum of squares for some data sets? Recall clustering method $K$-means when calculating the controid, it is to take the mean value of the datapoints belonging to the same cluster, so what about $K$-medians? What is its advantage over of $K$-means? Please use a synthetic (toy) experiment to illustrate your conclusion.
