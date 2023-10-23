@@ -67,36 +67,21 @@
 	\maketitle
 	
 
-<<<<<<< HEAD
 	\section{Problem 1}
 	For PCA, from the perspective of maximizing variance, please show that the solution of $\bm{\phi}$ to $\maximize \|\mX \bm{\phi}\|^2_2, \st \ \|\bm{\phi}\|_2=1$ is exactly the first column of $\mU$, where $[\mU,\mS]=svd(\mX^T\mX)$. (Note: you need prove why it is optimal than any other reasonable combinations of $\mU_i$, say $\hat{\bm{\phi}}=0.8*\mU(:,1)+0.6*\mU(:,2)$ which also  satisfies $\|\hat{\bm{\phi}}\|_2=1$.)
-=======
-	\section*{Problem 1}
-	For PCA, from the perspective of maximizing variance, please show that the solution of 
-	$\bm{\phi}$ to $\maximize \|\mX \bm{\phi}\|^2_2, \st \ \|\bm{\phi}\|_2=1$ is exactly the first column of 
-	$\mU$, where $[\mU,\mS, \mU]=svd(\mX^T\mX)$. (Note: you need prove why it is optimal than any other reasonable combinations of $\mU_i$, say $\hat{\bm{\phi}}=0.8*\mU(:,1)+0.6*\mU(:,2)$ which also  satisfies $\|\hat{\bm{\phi}}\|_2=1$.)
->>>>>>> a94e53495861e67c9080da4ee1a437570a728d2a
 	
 
 
 	
 	\vspace{4cm}
-<<<<<<< HEAD
 	\section{Problem 2}
-=======
-	\section*{Problem 2}
->>>>>>> a94e53495861e67c9080da4ee1a437570a728d2a
 	Given matrix $\mX\in\R^{n\times p}$ (assume each column is centered already), where $n$ denotes sample size while $p$ feature size. To conduct PCA, we need find eigenvectors to the  largest eigenvalues of $\mX^T\mX$, where usually the complexity is $\mathcal{O}(p^3)$. Apparently when $n\ll p$, this is not economic when $p$ is large. Please consider conducting PCA based on $\mX\mX^T$ and obtain the eigenvectors for $\mX^T\mX$ accordingly and use experiment to demonstrate the acceleration.
 		\vspace{5cm}
 	
 	
 	
 	
-<<<<<<< HEAD
 	\section{Problem 3}
-=======
-	\section*{Problem 3}
->>>>>>> a94e53495861e67c9080da4ee1a437570a728d2a
 	Let's revisit Least Squares Problem: $\minimize \limits_{\bm{\beta}} \frac{1}{2}\|\vy-\mA\bm{\beta}\|^2_2$, where $\mA\in\R^{n\times p}$.
 	\begin{enumerate}
 		\item Please show that if $p>n$, then vanilla solution $(\mA^T\mA)^{-1}\mA^T\vy$ is not applicable any more.	
@@ -105,15 +90,10 @@
 	\end{enumerate}
 	\vspace{2.5cm}
 	
-<<<<<<< HEAD
 	\section{Problem 4}
 	We consider matrix completion problem. As we discussed in class, the main issue of \textit{softImpute (Matrix Completion via Iterative Soft-Thresholded SVD)} is 
 	when the matrix size is large, conducting \textit{SVD} is computational demanding. Let's recall the original problem where 
 	$\mX, \mZ \in\mathbb{R}^{n\times d}$: 
-=======
-	\section*{Problem 4}
-	We consider matrix completion problem. As we discussed in class, the main issue of \textit{softImpute (Matrix Completion via Iterative Soft-Thresholded SVD)} is when the matrix size is large, conducting \textit{SVD} is computational demanding. Let's recall the original problem where $\mX, \mZ \in\mathbb{R}^{n\times d}$: 
->>>>>>> a94e53495861e67c9080da4ee1a437570a728d2a
 	\begin{equation}\label{eq:nuc}
 	\min\limits_{\mZ}\frac{1}{2}\|P_\Omega(\mX)-P_\Omega(\mZ)\|_F^2+\lambda \|\mZ\|_*
 	\end{equation} 
@@ -134,7 +114,6 @@ People have found that instead of finding optimal $\mZ$, it might be better to m
 	%\EndIf
 	\EndIf 
 \end{algorithmic}
-<<<<<<< HEAD
 
 \subsection{}
 It is easy to prove that the parts in front of the plus sign in the two objects are equal  
@@ -153,6 +132,4 @@ we can get \
 	\frac{\lambda}{2}(\|\mA\|_F^2+\|\mB\|^2_F) = \lambda\|\mZ\|_*
 \end{equation}
 From (\ref{eq:right}) and (\ref{eq:left}), we can tell (\ref{eq:nuc}) is equivalent to (\ref{eq:bur})
-=======
->>>>>>> a94e53495861e67c9080da4ee1a437570a728d2a
 \end{document}
