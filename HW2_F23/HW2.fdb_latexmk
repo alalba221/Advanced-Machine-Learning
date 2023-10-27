@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1698098159 "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW2_F23/HW2.tex" "HW2.pdf" "HW2" 1698098160 0
-  "HW2.aux" 1698098159 620 ff8ddb67bd5391bc946066c7b66083aa "pdflatex"
-  "HW2.tex" 1698098159 7173 a0d95ee85c32899da4db0ae404018e3a ""
-  "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW2_F23/HW2.tex" 1698098159 7173 a0d95ee85c32899da4db0ae404018e3a ""
+["pdflatex"] 1698434952 "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW2_F23/HW2.tex" "HW2.pdf" "HW2" 1698434953 0
+  "HW2.aux" 1698434953 1176 32858349f116c6e81bb831f8dedd183f "pdflatex"
+  "HW2.tex" 1698434925 8101 a7e6f1b3e99cca0fffdd648c9970e6ec ""
+  "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW2_F23/HW2.tex" 1698434925 8101 a7e6f1b3e99cca0fffdd648c9970e6ec ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1695735066 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1695735422 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1695735270 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -41,6 +41,7 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1695735061 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1695735061 1492 86331993fe614793f5e7e755835c31c5 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti8.tfm" 1695735061 1504 1747189e0441d1c18f3ea56fafc1c480 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1695735061 768 1321e9409b4137d6fb428ac9dc956269 ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1695734777 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1695734777 32080 340ef9bf63678554ee606688e7b5339d ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb" 1695734777 32166 b0c356b15f19587482a9217ce1d8fa67 ""
@@ -55,6 +56,7 @@
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1695734777 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1695734777 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1695734777 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1695734777 31099 342ef5a582aacbd3346f3cf4579679fa ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb" 1695734777 35479 2cca68718f15872e7cce1a8f6033b99b ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1695734777 34694 870c211f62cb72718a00e353f14f254d ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb" 1695735066 145929 5c9aebea9ba6e33fc93158c04a3bdcd8 ""
@@ -95,6 +97,11 @@
   "c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1695737018 4662804 27f73c2f767ae4579fe38abe9088e726 ""
   "c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1695737218 7883441 b592d1aac4845baf30166f5dd3faeba5 ""
   "c:/texlive/2023/texmf.cnf" 1695736994 713 e69b156964470283e0530f5060668171 ""
+  "q2.m" 1698430215 255 46cb9a6fd46b57a267346b611814edd8 ""
+  "q32.png" 1698430969 8670 5ef6f3c8a42c7698c827a1b6c3ff3b51 ""
+  "q3_2.m" 1698430787 317 28db3cbfa4742592b7808ea1edb537dc ""
+  "q3_3.m" 1698434951 563 351306dee5730beb59580d2a9c3e74d1 ""
+  "q3_3.png" 1698434891 11266 19687d3b16533ecb8617156e8ce70c4f ""
   (generated)
   "HW2.aux"
   "HW2.log"
