@@ -1,0 +1,37 @@
+
+
+n = 20;d = 20;
+r = 2;
+T = 200;
+alpha = 0.01;
+lambda = 10.0;
+
+R = sprand(n,d,0.5);
+
+A = rand(n,r);
+B = rand(d,r);
+
+B_t = B';
+
+errlist=zeros(T,1);
+
+for t = 1:T
+    for row = 1:n
+        for col = 1:r
+            if not(R(row,col)==0)
+                eij = R(row,col) - A(row,:)*B_t(:,col);
+%                 for rr = 1:r
+%                     A(row,rr) =  A(row,rr) + alpha *(eij*B_t(rr,col) - lambda*A(row,rr));
+%                     B_t(rr,col) =  B_t(rr,col) + alpha *(eij*A(row,rr) - lambda*B_t(rr,col));
+%                 end
+                
+                A(row,:) = A(row,:)+alpha *(eij*B(col,:) - lambda*A(row,:));
+                B(c,col) =  B_t(:,col) + alpha *(eij*A(row,:) - lambda*B_t(:,col));
+            end
+        end
+    end
+    
+    errlist(t)= norm(R-A*B_t,"fro");
+end
+ plot(1:T,errlist);
+ Z_star = A*B_t;
