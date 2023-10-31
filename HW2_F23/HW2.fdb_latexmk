@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1698434952 "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW2_F23/HW2.tex" "HW2.pdf" "HW2" 1698434953 0
-  "HW2.aux" 1698434953 1176 32858349f116c6e81bb831f8dedd183f "pdflatex"
-  "HW2.tex" 1698434925 8101 a7e6f1b3e99cca0fffdd648c9970e6ec ""
-  "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW2_F23/HW2.tex" 1698434925 8101 a7e6f1b3e99cca0fffdd648c9970e6ec ""
+["pdflatex"] 1698719985 "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW2_F23/HW2.tex" "HW2.pdf" "HW2" 1698719986 0
+  "HW2.aux" 1698719986 1311 1b5745e812f845ab2fb2e57d089f576b "pdflatex"
+  "HW2.tex" 1698719985 8866 737cd713454aae069108717b836b5d56 ""
+  "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW2_F23/HW2.tex" 1698719985 8866 737cd713454aae069108717b836b5d56 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1695735066 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1695735422 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1695735270 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -45,6 +45,7 @@
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1695734777 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1695734777 32080 340ef9bf63678554ee606688e7b5339d ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb" 1695734777 32166 b0c356b15f19587482a9217ce1d8fa67 ""
+  "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1695734777 30251 6afa5cb1d0204815a708a080681d4674 ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1695734777 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1695734777 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1695734777 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
@@ -102,6 +103,8 @@
   "q3_2.m" 1698430787 317 28db3cbfa4742592b7808ea1edb537dc ""
   "q3_3.m" 1698434951 563 351306dee5730beb59580d2a9c3e74d1 ""
   "q3_3.png" 1698434891 11266 19687d3b16533ecb8617156e8ce70c4f ""
+  "q4_2.m" 1698717487 1216 4d4dec356304588658de43c0419de2d4 ""
+  "q4_2.png" 1698717487 23537 85d0e050ea44f479b92aab91ce43763f ""
   (generated)
   "HW2.aux"
   "HW2.log"

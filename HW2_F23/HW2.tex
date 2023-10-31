@@ -59,7 +59,7 @@
 \pagestyle{plain}
 
 \title{{\bf Homework Set 2, CPSC 8420, Fall 2023}} % Change to the appropriate homework number
-\author{\Large\underline{Your Name}}
+\author{\Large\underline{Yue Zhang}}
 \date{\textbf{\Large\textcolor{red}{Due 10/26/2023, Thursday, 11:59PM EST}}} % put your name in the LastName, FirstName format
 %\date{\today}
 
@@ -68,12 +68,26 @@
 	
 
 	\section{Problem 1}
-	For PCA, from the perspective of maximizing variance, please show that the solution of $\bm{\phi}$ to $\maximize \|\mX \bm{\phi}\|^2_2, \st \ \|\bm{\phi}\|_2=1$ is exactly the first column of $\mU$, where $[\mU,\mS]=svd(\mX^T\mX)$. (Note: you need prove why it is optimal than any other reasonable combinations of $\mU_i$, say $\hat{\bm{\phi}}=0.8*\mU(:,1)+0.6*\mU(:,2)$ which also  satisfies $\|\hat{\bm{\phi}}\|_2=1$.)
+	For PCA, from the perspective of maximizing variance, please show that the solution of 
+	$\bm{\phi}$ to $\maximize \|\mX \bm{\phi}\|^2_2, \st \ \|\bm{\phi}\|_2=1$ 
+	is exactly the first column of $\mU$, where $[\mU,\mS]=svd(\mX^T\mX)$. 
+	(Note: you need prove why it is optimal than any other reasonable combinations of 
+	$\mU_i$, say $\hat{\bm{\phi}}=0.8*\mU(:,1)+0.6*\mU(:,2)$ 
+	which also  satisfies $\|\hat{\bm{\phi}}\|_2=1$.)
 	
+	\vspace{0.5cm}
+	Suppose $$\bm{\phi} = \sum_{1}^{n}\alpha_i\mU_i, \text{where} \sum_{0}^{n}\alpha_i^2=1$$
+	Then
+	\begin{align}
+		\|\mX \bm{\phi}\|^2_2 &= \bm{\phi}^T(\mU\mS\mU^T)\bm{\phi} = \bm{\phi}^T(\sum\mS_{ii}\mU_i\mU_i^T)\bm{\phi}\\
+		\text{when, } i=1 \rightarrow \|\mX \bm{\phi}\|^2_2 &= \mS_{11}\\
+		\text{otherwise, } m\leq n \rightarrow\|\mX \bm{\phi}\|^2_2 & = \sum_{1}^{m}\alpha_i^2 \mS_{ii}< \mS_{11}\sum_{1}^{m}\alpha_i^2 = \mS_{11}
+	\end{align}
+	So taking $\bm{\phi}\| = \mU_1$ is optimal than any other reasonable combinations of $\mU$
 
 
-	
 	\vspace{4cm}
+	
 	\section{Problem 2}
 	Given matrix $\mX\in\R^{n\times p}$ (assume each column is centered already), where $n$ denotes sample size while $p$ feature size. To conduct PCA, we need find eigenvectors to the  largest eigenvalues of $\mX^T\mX$, where usually the complexity is $\mathcal{O}(p^3)$. Apparently when $n\ll p$, this is not economic when $p$ is large. Please consider conducting PCA based on $\mX\mX^T$ and obtain the eigenvectors for $\mX^T\mX$ accordingly and use experiment to demonstrate the acceleration.
 	\vspace{0.5cm}
