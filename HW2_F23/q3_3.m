@@ -19,6 +19,7 @@ for lambda = lambda_list
         err(i)=0.5*norm(y-A*beta)^2 + 0.5*lambda*norm(beta)^2 - opt;
     end
     x = 1:Itr;
-    plot(x,err)
+    %plot(x,err)
+    semilogy(1:Itr,err)
     hold on
 end

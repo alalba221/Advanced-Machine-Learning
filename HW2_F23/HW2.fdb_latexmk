@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1698719985 "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW2_F23/HW2.tex" "HW2.pdf" "HW2" 1698719986 0
-  "HW2.aux" 1698719986 1311 1b5745e812f845ab2fb2e57d089f576b "pdflatex"
-  "HW2.tex" 1698719985 8866 737cd713454aae069108717b836b5d56 ""
-  "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW2_F23/HW2.tex" 1698719985 8866 737cd713454aae069108717b836b5d56 ""
+["pdflatex"] 1698783261 "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW2_F23/HW2.tex" "HW2.pdf" "HW2" 1698783261 0
+  "HW2.aux" 1698783261 1311 38af92964d97289817a5e95819802f4f "pdflatex"
+  "HW2.tex" 1698783259 8866 7b21db2f937d5c6ec1e25f239f5155bc ""
+  "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW2_F23/HW2.tex" 1698783259 8866 7b21db2f937d5c6ec1e25f239f5155bc ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1695735066 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1695735422 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1695735270 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -99,10 +99,10 @@
   "c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1695737218 7883441 b592d1aac4845baf30166f5dd3faeba5 ""
   "c:/texlive/2023/texmf.cnf" 1695736994 713 e69b156964470283e0530f5060668171 ""
   "q2.m" 1698430215 255 46cb9a6fd46b57a267346b611814edd8 ""
-  "q32.png" 1698430969 8670 5ef6f3c8a42c7698c827a1b6c3ff3b51 ""
-  "q3_2.m" 1698430787 317 28db3cbfa4742592b7808ea1edb537dc ""
-  "q3_3.m" 1698434951 563 351306dee5730beb59580d2a9c3e74d1 ""
-  "q3_3.png" 1698434891 11266 19687d3b16533ecb8617156e8ce70c4f ""
+  "q32.png" 1698782677 11339 a45dd58908296ed840787134a062a1d9 ""
+  "q3_2.m" 1698782645 339 e0d74d32f06c90d6bd49178ab14daa64 ""
+  "q3_3.m" 1698782992 589 23579f6e94c016077971a5cd95ebdc78 ""
+  "q3_3.png" 1698783118 12809 bf58d39b274d022d9a5733be63deabe3 ""
   "q4_2.m" 1698717487 1216 4d4dec356304588658de43c0419de2d4 ""
   "q4_2.png" 1698717487 23537 85d0e050ea44f479b92aab91ce43763f ""
   (generated)

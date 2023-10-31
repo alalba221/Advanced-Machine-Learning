@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.26)  31 OCT 2023 10:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.26)  1 NOV 2023 04:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -235,18 +235,18 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: "./q2.m"  (verbatim)
  [2]
 File: "./q3_2.m"  (verbatim)
-<q32.png, id=26, 519.9425pt x 405.515pt>
+<q32.png, id=26, 491.8375pt x 414.54875pt>
 File: q32.png Graphic file (type png)
 <use q32.png>
 Package pdftex.def Info: q32.png  used on input line 122.
-(pdftex.def)             Requested size: 234.8775pt x 183.18544pt.
-File: "./q3_3.m"  (verbatim)
+(pdftex.def)             Requested size: 234.8775pt x 197.96906pt.
  [3 <./q32.png (PNG copy)>]
-<q3_3.png, id=30, 532.99126pt x 395.4775pt>
+File: "./q3_3.m"  (verbatim)
+<q3_3.png, id=30, 498.86375pt x 391.4625pt>
 File: q3_3.png Graphic file (type png)
 <use q3_3.png>
 Package pdftex.def Info: q3_3.png  used on input line 131.
-(pdftex.def)             Requested size: 234.8775pt x 174.27615pt.
+(pdftex.def)             Requested size: 234.8775pt x 184.30995pt.
  [4 <./q3_3.png (PNG copy)>]
 File: "./q4_2.m"  (verbatim)
  [5{c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
@@ -275,9 +275,9 @@ Here is how much of TeX's memory you used:
  24527 multiletter control sequences out of 15000+600000
  529692 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,10n,62p,593b,416s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,10n,62p,593b,336s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on HW2.pdf (7 pages, 263505 bytes).
+Output written on HW2.pdf (7 pages, 267995 bytes).
 PDF statistics:
  127 PDF objects out of 1000 (max. 8388607)
  76 compressed objects within 1 object stream

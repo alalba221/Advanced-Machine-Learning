@@ -16,6 +16,7 @@ for i=1:Itr
     beta = beta - 1/L*(A'*A*beta-A'*y);
     err(i)=0.5*norm(y-A*beta)^2-opt;
 end
-plot(1:Itr,err)
+%plot(1:Itr,err)
+semilogy(1:Itr,err)
 
 
