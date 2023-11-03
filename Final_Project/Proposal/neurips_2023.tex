@@ -104,7 +104,7 @@
 
   As can be noticed from the previous action, there will be a large number of features. To reduce the number of features, the highest frequency words for an attribute will only be used. It has not been decided what number of words will be allowed yet. For example, say that the first component is being looked at first, then in the training set fifty of the highest frequency used words for each individual would be chosen and then combining all of these words will be the features. 
 A perceptron will be trained for each component of the personality type. Then, for the test set, the featured words will be counted for each individual. The perceptron will then make a decision on each component. The accuracy of this algorithm will then be assessed.
-
+In addition to using words as features to predict personality type for each of the four attributes, a separate dataset will be used where the letter frequency average for each individuals set of posts will be used as features (26 features). A perceptron will still be used to attempt to classify a personality type for each attribute. The effectiveness will then be assessed between these two sets of features (words vs letters).
 \end{abstract}
 
 
