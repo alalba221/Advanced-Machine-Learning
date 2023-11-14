@@ -1,8 +1,8 @@
-PWD c:/study/Advanced machine learning/Advanced-Machine-Learning/Final_Project/Proposal
+PWD c:/study/Advanced machine learning/Advanced-Machine-Learning/Final_Project/MileStone
 INPUT c:/texlive/2023/texmf.cnf
 INPUT c:/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/study/Advanced machine learning/Advanced-Machine-Learning/Final_Project/Proposal/neurips_2023.tex
+INPUT c:/study/Advanced machine learning/Advanced-Machine-Learning/Final_Project/MileStone/neurips_2023.tex
 OUTPUT neurips_2023.log
 INPUT c:/texlive/2023/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2023/texmf-dist/tex/latex/base/article.cls
