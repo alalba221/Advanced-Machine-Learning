@@ -93,27 +93,34 @@
 
   Due to the nature of the Myers-Briggs type , we can break down the classification task with 16 classes in to 4 binary classification tasks. This is because a MBTI type is composed of 4 binary classes, where each binary class represents a dimension of personality of the MBTI personality model as theorized by the inventors. Therefore, instead of training a multi-class classifier, we instead train 4 different binary classifiers, such that each specializes in one of the dimensions of personality. 
 
-  Our main dataset set is a public Kaggle data set containing of 6939 rows of data. Each row represents an anonymous individual. For each individual there is a personality type feature and multiple features containing the posts of that individual. This dataset will be altered to better fit the goals of the project.
-
-  The first action that needs to be taken is to “split” each component of the personality type into separate features. For example, the introversion vs extroversion component will be one feature and the intuition vs sensing component will be another feature, etc. 
-
-  Second, since the data set comes from  Twitter, where individuals communicate strictly via written text, some word removal is necessary, since  we want every word in the data to be as meaningful as possible. we need to remove some very common words like “a”, ”the”, “or”. etc.  also we need to remove types themselves(eg ‘INTJ’, ‘INFP’, etc), so to prevent the model from cheating by learning to recognize mentions of MBTI by name.
-
-  Third, we need to transform words into their  root word (e.g. “singing”, ”sang”, “sung” all become “sing”). This will allow us to make use of the fact the infected forms of the same word still carry one shared meaning.   
-
-
-  As can be noticed from the previous action, there will be a large number of features. To reduce the number of features, the highest frequency words for an attribute will only be used. It has not been decided what number of words will be allowed yet. For example, say that the first component is being looked at first, then in the training set fifty of the highest frequency used words for each individual would be chosen and then combining all of these words will be the features. 
-A perceptron will be trained for each component of the personality type. Then, for the test set, the featured words will be counted for each individual. The perceptron will then make a decision on each component. The accuracy of this algorithm will then be assessed.
-In addition to using words as features to predict personality type for each of the four attributes, a separate dataset will be used where the letter frequency average for each individuals set of posts will be used as features (26 features). A perceptron will still be used to attempt to classify a personality type for each attribute. The effectiveness will then be assessed between these two sets of features (words vs letters).
+  Once these new datasets were produced, each dataset (each one was a csv file) was transformed into a table in MATLAB. The rows were sorted on the attribute column so that one type would appear first before the other one. For example, if the dataset with the first attribute was being used, then each individual labeled as an introvert would appear first and then the individuals labeled as extroverts would appear second. Then, a certain number of rows for each type were taken and were combined to form a training set. The other rows remaining were combined to form the test set. After each set was randomly permutated and standardized (the zscore function was used), training set was put through a linear perceptron algorithm to find the weights. Using these weights, the test set was put through another algorithm to test the accuracy of this perceptron. 
+  
 \end{abstract}
 
 
-% \section{Submission of papers to NeurIPS 2023}
+\section{Introduction}
+\section{Background}
+\section{Methods}
 
+\section{Based on letters}
+As mentioned in the proposal, for each row (anonymous individual) there was a personality type made up of four attributes and a certain number of columns with each column containing a whole or part of a twitter post. The first objective was to combine all these columns into one so that there was just one column containing all the posts for each individual. The second objective was to split up the personality type into four separate columns where each column represented an attribute. For example, if an individual was labeled as IFSP, then this column would be split into four attributes where the first attribute would be labeled as I, the second attribute labeled as F, etc. These transformations were done in Excel.\\
+For the first part of our research project, it wanted to be determined if there was an association between the average of different letters and the individual’s specific attribute type. To see if there was an association, the frequency of each letter was found for each row (individual). Since, each individual varied on the number of letters used for all of their posts, the average was then calculated for each letter frequency. For example, if an individual used a total of 20000 characters and used the letter ‘a’ in 1000 instances, then there would be a score of .05 (instances/ total \# of characters). After, the average was calculated for each letter for each individual, then this new dataset was split into four datasets where each dataset concentrated on a specific attribute (I vs E, F vs T, etc.). This part of the project was done in Python.
+\\
+After using this process for each dataset and varying the number of entries in the training set and varying the number of iterations the perceptron took to find the weights, it was observed the accuracy varied significantly. Accuracy scores approximately ranged from 35\% to 70\%. It was questioned whether perhaps the specific sample used could explain these observations. In other words, maybe choosing an appropriate training set could make the perceptron more accurate by being more representative of the rest of the dataset.
+\\
+A clustering approach in Python was used to investigate this question. Specifically, Kmeans was used from the Sci-kit Learn package. The intent of the overall process about to be outlined was to cluster the whole population (all the entries in a particular dataset) into groups based on a mean value. Then, a representative would be chosen from each group to be used for the training set. Perhaps, this representative training sample could lead to a higher accuracy score using the linear perceptron.
+\\
+The specific process started with using just one dataset with the second attribute (F vs T). The columns that were not going to be used in the clustering algorithm were dropped. The data frame was then grouped by the binary classification (1 or -1) and then was split into two separate data frames based on this classification. 
+\\
+Kmeans was then used for each dataset with a certain number of means (but the same) to cluster both data frames. After adding a cluster group column in each data frame, each row (in each data frame) was labeled with its corresponding group number. Each data frame, was then sorted in ascending order based on its cluster group number. A representative was then chosen from each group from each data frame. This representative was chosen by being first the first entry for each group. All the representatives were then put into a training set and the rest of the entries were put in a test set. Each set was then randomly permutated and the cluster group column was dropped. The training and test set were then converted to an array so that it was an acceptable form to be used by the linear perceptron model from the Sci-kit Learn package. The training set was used to train this model and then the test set was used to measure its accuracy.
 
+\subsection{letters result}
+The accuracy was measured using a different number of training ‘representatives’. This number was only changed a few times (so there were only a few accuracy scores) but the accuracy did not get above 55\%. This process was rudimentary since it did not find the ‘best’ representative of the group. In other words, it did not find the group member with the lowest average mean. At this time, it is also uncertain how 70\% was even achieved in the initial perceptron process (MATLAB). These questions still need to be investigated. However, it was concluded that looking at frequency averages of letters did not provide a significant way of labeling each attribute. Therefore, the next portion of the project was dedicated to investigating the words used instead of the frequency averages of the letters.
 % Please read the instructions below carefully and follow them faithfully. \textbf{Important:} This year the checklist will be submitted separately from the main paper in OpenReview, please review it well ahead of the submission deadline: \url{https://neurips.cc/public/guides/PaperChecklist}.
 
-
+\section{Based on words}
+\subsection{Preprocessing}
+When we examined other studies of MBTI using machine learning, we were surprised to find that researchers rarely made a point of cleaning their data set to accord with the actual proportions of MBTI types in the general population (e.g. ISTJ = 0.11, ISFJ = 0.09, etc.)[3]. Since our raw data set is severely disproportional (see fig. 1) compared to the roughly uniform distribution for the general population, it was clear to us that some cleaning of the proportional representation of each MBTI type would be necessary. Therefore, we artificially made our test set reflect the proportions found for each type in the general population, so as to prevent any misinterpretation of results due to skewed representation of classes in the test set.
 % \subsection{Style}
 
 
@@ -306,14 +313,14 @@ In addition to using words as features to predict personality type for each of t
 % marks.\footnote{As in this example.}
 
 
-% \subsection{Figures}
+\subsection{Figures}
 
 
-% \begin{figure}
-%   \centering
-%   \fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-%   \caption{Sample figure caption.}
-% \end{figure}
+\begin{figure}
+  \centering
+  \fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+  \caption{Sample figure caption.}
+\end{figure}
 
 
 % All artwork must be neat, clean, and legible. Lines should be dark enough for

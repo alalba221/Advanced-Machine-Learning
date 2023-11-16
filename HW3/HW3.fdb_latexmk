@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1699630366 "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW3/HW3.tex" "HW3.pdf" "HW3" 1699630368 0
-  "HW3.aux" 1699630368 56 b282a1ab4232f2977637aa87e6760cdd "pdflatex"
-  "HW3.tex" 1699630365 3967 ef04494f6f0b8964a1a1c2fa1602b2e7 ""
-  "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW3/HW3.tex" 1699630365 3967 ef04494f6f0b8964a1a1c2fa1602b2e7 ""
+["pdflatex"] 1700167861 "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW3/HW3.tex" "HW3.pdf" "HW3" 1700167862 0
+  "HW3.aux" 1700167862 198 26bc2734cd0d1480463d4c1f7d9cba63 "pdflatex"
+  "HW3.tex" 1700167860 6821 5bb0594e72f6a9c74a7ee9e98d070c9f ""
+  "c:/study/Advanced machine learning/Advanced-Machine-Learning/HW3/HW3.tex" 1700167860 6821 5bb0594e72f6a9c74a7ee9e98d070c9f ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1695735422 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1695734777 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1695734777 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -39,11 +39,13 @@
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1695734777 32080 340ef9bf63678554ee606688e7b5339d ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1695734777 30251 6afa5cb1d0204815a708a080681d4674 ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1695734777 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1695734777 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1695734777 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1695734777 35752 024fb6c41858982481f6968b5fc26508 ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1695734777 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1695734777 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1695734777 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1695734777 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "c:/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1695735984 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "c:/texlive/2023/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty" 1695734768 26750 ce139c05a983e19ddca355b43e29c395 ""
   "c:/texlive/2023/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty" 1695734768 3457 d9077efe6b74c5a094199256af8d7d9a ""

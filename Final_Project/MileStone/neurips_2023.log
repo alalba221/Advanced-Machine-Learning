@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.26)  13 NOV 2023 20:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.26)  14 NOV 2023 13:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -409,23 +409,23 @@ Package microtype Info: Loading generic protrusion settings for font family
  [1
 
 
-{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2] (./neurips_2023.aux)
+{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2] [3] (./neurips_2023.aux)
 Package rerunfilecheck Info: File `neurips_2023.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: E0EBB59997DC11BDB3F2A046BF7B4989;866.
  ) 
 Here is how much of TeX's memory you used:
- 12132 strings out of 476025
- 191848 string characters out of 5794015
- 1865382 words of memory out of 5000000
- 32325 multiletter control sequences out of 15000+600000
- 541252 words of font info for 123 fonts, out of 8000000 for 9000
+ 12175 strings out of 476025
+ 192260 string characters out of 5794015
+ 1866382 words of memory out of 5000000
+ 32337 multiletter control sequences out of 15000+600000
+ 542162 words of font info for 137 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,76p,1096b,548s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,76p,1096b,447s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on neurips_2023.pdf (2 pages, 83444 bytes).
+Output written on neurips_2023.pdf (3 pages, 91411 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
- 32 compressed objects within 1 object stream
- 3 named destinations out of 1000 (max. 500000)
- 31745 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 90 PDF objects out of 1000 (max. 8388607)
+ 72 compressed objects within 1 object stream
+ 13 named destinations out of 1000 (max. 500000)
+ 31809 words of extra memory for PDF output out of 35830 (max. 10000000)
 

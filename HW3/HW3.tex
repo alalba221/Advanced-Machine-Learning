@@ -87,10 +87,42 @@ Now we formulate another formulation as:
 \end{equation}
 \begin{enumerate}
 	\item Different from Eq. (\ref{eq:1}), we now drop the non-negative constraint for $\xi_i$, please show that optimal value of the objective will be the same when $\xi_i$ constraint is removed.
-		
+		The Lagrangian for the object is
+		\begin{align}
+			L = \frac{1}{2}\omega^T\omega+\frac{C}{2}\sum_{i=1}^{m}\xi_i^2-\sum_{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1 + \xi_i] ; \alpha_i\geq 0
+		\end{align}
+		then the original problem can be converted to 
+		\begin{align}
+			\min_{x}\max_{\omega\;\xi\;b}L &= \min_{x}\max_{\omega\;\xi\;b}\frac{1}{2}\omega^T\omega+\frac{C}{2}\sum_{i=1}^{m}\xi_i^2-\sum_{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1 + \xi_i]\\ \label{eq:minmax}
+			&=\min_{x} \left( \max_{\omega\;\xi\;b}\left(\frac{1}{2}\omega^T\omega+
+			\frac{C}{2}\sum_{i=1}^{m}\xi_i^2-\sum_{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1] \right) + \max_{\xi}\sum_{i=1}^{m}-\alpha_i\xi_i\right)
+			\\
+			\text{for } \xi_i<0 &\Rightarrow  \max_{\xi}\sum_{i=1}^{m}-\alpha_i\xi_i = \infty \Rightarrow \max L = \infty \label{eq:less} \\ 
+			\text{for } \xi_i\geq 0 &\Rightarrow  \max L < \infty \label{eq:greater}
+		\end{align}
+		Comnine (\ref{eq:minmax}), (\ref{eq:less}) and (\ref{eq:greater}), we can greater
+	\begin{equation}
+			\min_{x}\max_{\omega\;\xi\;b}L  = \min_x\left( \overbrace{\max L}^{\xi_i\geq 0},\overbrace{+\infty}^{\xi_i<0}\right) = \min_x\max L
+	\end{equation}
+	then it proved, the optimization will drop the part for $\xi_i<0$ automatically, so the optimal value of the objectives are the same
 	\item What's the generalized Lagrangian of the new soft margin SVM optimization problem?
+		\begin{equation}
+			L = \frac{1}{2}\omega^T\omega+\frac{C}{2}\sum_{i=1}^{m}\xi_i^2-\sum_{i=1}^{m}\alpha_i[y_i(w^Tx_i + b) - 1 + \xi_i] ; \alpha_i\geq 0
+		\end{equation}
 	\item Now please minimize the Lagrangian with respect to $w, b$, and $\xi$.
+		\begin{align}
+			\frac{\partial L}{\partial \omega} = 0 \Rightarrow \omega = \sum_{i=1}^{m}\alpha_i y_i x_i\\
+			\frac{\partial L}{\partial b} = 0 \Rightarrow \sum_{i=1}^{m}\alpha_iy_i=0\\
+			\frac{\partial L}{\partial \xi} = 0 \Rightarrow \xi_i=\frac{\alpha_i}{C}
+		\end{align}
+	
 	\item What is the dual of this version soft margin SVM optimization problem? (should be similar to Eq. (10) in the slides)
+		\begin{align}
+				\max_{\alpha}\min_{\omega\;\xi\;b}L(\omega\;\xi\;b\;\alpha) = \\
+				\min_{\alpha} \frac{1}{2}\sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_i\alpha_jy_iy_jx_i^T x_i-\sum_{i=1}^{m}\alpha_i+\frac{1}{2}\sum_{i=1}^{m}\frac{\alpha_i^2}{C} \label{eq:newsoft}
+		\end{align}
+		s.t
+		$$\sum_{i=1}^{m}\alpha_iy_i=0\;\;, \alpha_i\geq 0$$
 \end{enumerate}
 
 \section*{Problem 2}
@@ -101,4 +133,20 @@ L(w,b,\alpha) = \frac{1}{2}||w||_2^2 - \sum\limits_{i=1}^{m}\alpha_i[y_i(w^Tx_i 
 \end{aligned}
 \end{equation}
 If we denote the margin as $\gamma$, and vector $\alpha=[\alpha_1, \alpha_2, \dots, \alpha_m]$, now please show $\gamma^2*\|\alpha\|_1=1$.
+
+
+Since
+\begin{align}
+	\frac{\partial L}{\partial \omega} =0 \Rightarrow \omega = \sum_{i=1}^{m}\alpha_iy_ix_i\\
+	\frac{\partial L}{\partial b} =0 \Rightarrow \sum_{i=1}^{m}\alpha_iy_i=0\\
+	b = y_i-\sum_{j=1}^{m}\alpha_jy_jx_j^Tx_i \label{eq:b}
+\end{align}
+then mutiply $\sum_{i=1}^{m}\alpha_iy_i$ on both sides of (\ref{eq:b})
+then we got
+\begin{align}
+	\sum_{i=1}^{m}\alpha_iy_ib &= \sum_{i=1}^{m}\alpha_iy_i^2-\sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_iy_i\alpha_jy_jx_j^Tx_i\\
+	\text{Since } y_i^2=1\; ,\omega = \sum_{i=1}^{m}\alpha_iy_ix_i \;  \sum_{i=1}^{m}\alpha_iy_i=0&\Rightarrow \sum_{i=1}^{m}\alpha_i = ||\omega||^2\\
+	\text{by definition } ||\alpha||_1 = \sum_{i=1}^{m}\alpha_i \;\; , \gamma = \frac{1}{||\omega||} &\Rightarrow \gamma^2\times ||\alpha||_1 = 1
+\end{align}
+
 \end{document}

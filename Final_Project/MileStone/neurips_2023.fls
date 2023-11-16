@@ -558,10 +558,10 @@ INPUT ./neurips_2023.out
 INPUT neurips_2023.out
 INPUT ./neurips_2023.out
 INPUT neurips_2023.out
+OUTPUT neurips_2023.pdf
 INPUT ./neurips_2023.out
 INPUT ./neurips_2023.out
 OUTPUT neurips_2023.out
-OUTPUT neurips_2023.pdf
 INPUT c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 INPUT c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 INPUT c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-ptm.cfg
