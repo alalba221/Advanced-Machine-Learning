@@ -1,6 +1,6 @@
 \documentclass{article}
 
-
+\usepackage{graphicx}
 % if you need to pass options to natbib, use, e.g.:
 %     \PassOptionsToPackage{numbers, compress}{natbib}
 % before loading neurips_2023
@@ -121,8 +121,28 @@ The accuracy was measured using a different number of training ‘representative
 \section{Based on words}
 \subsection{Preprocessing}
 When we examined other studies of MBTI using machine learning, we were surprised to find that researchers rarely made a point of cleaning their data set to accord with the actual proportions of MBTI types in the general population (e.g. ISTJ = 0.11, ISFJ = 0.09, etc.)[3]. Since our raw data set is severely disproportional (see fig. 1) compared to the roughly uniform distribution for the general population, it was clear to us that some cleaning of the proportional representation of each MBTI type would be necessary. Therefore, we artificially made our test set reflect the proportions found for each type in the general population, so as to prevent any misinterpretation of results due to skewed representation of classes in the test set.
+\begin{figure}
+  \centering
+  \fbox{\includegraphics[width=1.\linewidth]{1.png}}
+  \caption{ Distribution of MBTI types in the data set.}
+\end{figure}
 % \subsection{Style}
-
+\subsection{Meaningless words removal}
+As the dataset is sourced from an online forum where communication is solely through written text, certain modifications were necessary. Notably, instances of data points containing hyperlinks were eliminated, aiming to foster the model's generalization to the English language. Additionally, to enhance the meaningfulness of each word in the dataset, so-called "stop words," such as common fillers like "a," "the," "or," etc., were excluded using the NLTK library in Python. Lastly, considering the dataset's origin from a website dedicated to explicit discussions about personality models, particularly MBTI, references to specific types (e.g., 'INTJ,' 'INFP,' etc.) were expunged. This measure was taken to prevent the model from potentially "cheating" by learning to recognize MBTI mentions explicitly by name.
+\subsection{Transfer to root words}
+To transfer to root words on the text, 
+we employed the nltk.stem.WordNetLemmatizer. 
+This process involved transforming inflected forms of the same root word into their dictionary form; for instance, "walking," "walked," and "walk" were all lemmatized to "walk." This approach enables us to capitalize on the shared meaning inherent in various inflected forms of a given word.
+\begin{figure}
+  \centering
+  \fbox{\includegraphics[width=1.\linewidth]{before.png}}
+  \caption{ Before Preprocessing.}
+\end{figure}
+\begin{figure}
+  \centering
+  \fbox{\includegraphics[width=1.\linewidth]{after.png}}
+  \caption{ After Preprocessing.}
+\end{figure}
 
 % Papers to be submitted to NeurIPS 2023 must be prepared according to the
 % instructions presented here. Papers may only be up to {\bf nine} pages long,
@@ -313,14 +333,14 @@ When we examined other studies of MBTI using machine learning, we were surprised
 % marks.\footnote{As in this example.}
 
 
-\subsection{Figures}
+% \subsection{Figures}
 
 
-\begin{figure}
-  \centering
-  \fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-  \caption{Sample figure caption.}
-\end{figure}
+% \begin{figure}
+%   \centering
+%   \fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+%   \caption{Sample figure caption.}
+% \end{figure}
 
 
 % All artwork must be neat, clean, and legible. Lines should be dark enough for
