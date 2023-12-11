@@ -34,8 +34,9 @@ function [B, te_acc, tr_acc, obj]=log_reg(y, X, te_y, te_X, lambda, c)
         tr_acc(iter)=cal_te_acc(B, y, X);
         te_acc(iter)=cal_te_acc(B, te_y, te_X);
         
-        %print itermediate result
-        if (iter<10 || mod(iter,100)==0)
+        %print itermediate rescult
+        %if (iter<10 || mod(iter,100)==0)
+        if (iter==5000)
             fprintf('Iter=%d, Obj=%f, tr_acc=%f, te_acc=%f\n',   iter, obj(iter), tr_acc(iter), te_acc(iter));
         end
         

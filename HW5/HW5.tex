@@ -84,22 +84,56 @@ If we define $\vw_K=\vzero$, then we can combine the two cases above as one:
 \end{equation}
 \begin{enumerate}
 	\item What and how many parameters are there to be optimized? 
-
+		$$ \{\vw_1,\vw_2 ... \vw_{k-1}\}$$ since each $\vw_i$ is a $d$ dimension vector,
+		so total $d\times(k-1)$
 	\item The training data is given as: $\{(\vx_1,y_1),\dots,(\vx_n,y_n)\}$, please simplify the log likelihood function to your best:
-	\begin{equation}\label{ori}
-		L(\vw_1,\dots,\vw_{K-1})=\sum\limits_{i=1}^n ln P(Y=y_i|X=\vx_i)
-	\end{equation}
+
+	\begin{align}
+		L(\vw_1,\dots,\vw_{K-1})&=\sum\limits_{i=1}^n ln P(Y=y_i|X=\vx_i)\\
+		&=\sum\limits_{i=1}^n ln \frac{exp(\vw_{y_i}^T\vx_i)}{1+\sum\limits_{l=1}^{K-1}exp(\vw_{l}^T\vx_i)}\\
+		& = \sum\limits_{i=1}^n (\vw_{y_i}^T\vx_i - ln (1+\sum\limits_{l=1}^{K-1}exp(\vw_{l}^T\vx_i)))
+	\end{align}
+
+
 	\item Now please find the gradient of $L$ \wrt $\vw_k$.
+	
+	\begin{align}
+		\frac{\partial L}{\partial \vw_k} = \sum\limits_{i=1}^n ( \mI(y_i==k)\vx_i -\frac{exp(\vw_k^T\vx_i)}{1+\sum\limits_{l=1}^{K-1}exp(\vw_{l}^T\vx_i)}\vx_i), y_i=k
+	\end{align}
+
+
 	\item If we add regularization term and formulate new objective function as:
 	\begin{equation}\label{reg}
 		f(\vw_1,\dots,\vw_{K-1})=L(\vw_1,\dots,\vw_{K-1})-\frac{\lambda}{2}\sum\limits_{l=1}^{K-1}\|\vw_l\|^2_2,
 	\end{equation}
 	now please determine the new gradient.
+	
+	\begin{align}
+		\frac{\partial f}{\partial \vw_k} &= \sum\limits_{i=1}^n ( \mI(y_i==k)\vx_i -\frac{exp(\vw_k^T\vx_i)}{1+\sum\limits_{l=1}^{K-1}exp(\vw_{l}^T\vx_i)}\vx_i) - \lambda\vw_k\\
+		\implies \frac{\partial f}{\partial \mW} &= \mX^T(\mI-\frac{exp(\mX\mW)}{\Delta})-\lambda \mW\\
+		\text{where, } \Delta_i &= |1+\sum_j exp(\mX\mW)_{i,j},\  ... ,\  1+\sum_j exp(\mX\mW)_{i,j} |
+	\end{align}
+	
 	\item You are given \textit{USPS} handwritten recognition digit dataset, with image size $16 \times 16$. For each digit (\ie 0,1,\dots,9) there are 600 training samples in addition to 500 testing ones. You may use: imshow(reshape($\vx$,16,16)) to view the image in Matlab. (Non-Matlab user may utilize .txt files to conduct experiments.)
 	\begin{enumerate}
 		\item Please use gradient ascent algorithm (you are expected to complete log\_grad.m) to train the model and plot 1) vanilla objective function L in Eq.(\ref{ori}); 2) training accuracy and 3) testing accuracy with updates respectively. Also indicate the final testing accuracy score. (Please choose a proper learning rate and stopping criterion). The folder include figures for your reference. 
+		\mfile{log_grad.m} 
+		\begin{figure}[h!]
+			\includegraphics[width=.32\linewidth]{obj}
+			\includegraphics[width=.32\linewidth]{train_err}
+			\includegraphics[width=.32\linewidth]{test_err}
+		\end{figure}
+		
 		\item Now if we add the regularization term as Eq.(\ref{reg}), please show the final accuracy when $\lambda=\{0,1,10,100,200\}$ respectively.
+		\begin{align*}
+			\lambda = 0.1, acc = 0.914400\\
+			\lambda = 1, acc = 0.915800\\
+			\lambda = 10, acc = 0.919200\\
+			\lambda = 100, acc = 0.897400\\
+			\lambda = 200, acc = 0.881800\\
+		\end{align*}
 		\item What conclusion can we draw from the above experiments?
+		penalty term can avoid overfitting on training data, but too large a penalty term will decrease the accuracy
 	\end{enumerate}
 \end{enumerate}
 

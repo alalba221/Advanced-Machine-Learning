@@ -1,6 +1,6 @@
-close all;clear all;
+clear all;
 
-load usps_digital.mat
+load usps_digit.mat
 
 %% lambda=0
 
@@ -34,6 +34,10 @@ ylabel('Testing Accuracy ','FontSize',15);
 set(gca, 'FontSize',15);
 drawnow
 saveas(gcf, 'test_err.fig');
+
+% lambda=.1
+lambda=.1;
+[B_01, te_err_01, tr_err_01, obj_01]=log_reg(tr_y, tr_X, te_y, te_X, lambda, c);
 
 %% lambda=1
 lambda=1;
