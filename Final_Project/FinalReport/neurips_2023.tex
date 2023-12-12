@@ -115,22 +115,174 @@ When we examined other studies of MBTI using machine learning, we were surprised
   \caption{ Distribution of MBTI types in the data set.}
 \end{figure}
 % \subsection{Style}
-\subsection{Meaningless words removal}
+\subsubsection{Meaningless words removal}
 As the dataset is sourced from an online forum where communication is solely through written text, certain modifications were necessary. Notably, instances of data points containing hyperlinks were eliminated, aiming to foster the model's generalization to the English language. Additionally, to enhance the meaningfulness of each word in the dataset, so-called "stop words," such as common fillers like "a," "the," "or," etc., were excluded using the NLTK library in Python. Lastly, considering the dataset's origin from a website dedicated to explicit discussions about personality models, particularly MBTI, references to specific types (e.g., 'INTJ,' 'INFP,' etc.) were expunged. This measure was taken to prevent the model from potentially "cheating" by learning to recognize MBTI mentions explicitly by name.
-\subsection{Transfer to root words}
+\subsubsection{Transfer to root words}
 To transfer to root words on the text, 
 we employed the nltk.stem.WordNetLemmatizer. 
 This process involved transforming inflected forms of the same root word into their dictionary form; for instance, "walking," "walked," and "walk" were all lemmatized to "walk." This approach enables us to capitalize on the shared meaning inherent in various inflected forms of a given word.
 \begin{figure}
   \centering
-  \fbox{\includegraphics[width=1.\linewidth]{before.png}}
+  \fbox{\includegraphics[width=.5\linewidth]{before.png}}
   \caption{ Before Preprocessing.}
 \end{figure}
 \begin{figure}
   \centering
-  \fbox{\includegraphics[width=1.\linewidth]{after.png}}
+  \fbox{\includegraphics[width=.5\linewidth]{after.png}}
   \caption{ After Preprocessing.}
 \end{figure}
+\subsubsection{Input format}
+First, we picked up 500 most commom words from the proprocessed dataset,
+\\
+('think', 39658),('get', 28446),('people', 27788),('know', 24659),('one', 21477),('feel', 21454),.....
+
+Then we build a vector of 500 elements to represent each post which each element is the frequency of these 500 words in the post.
+\begin{equation}
+ [f_0,f_1,...,f_{499}]^T
+\end{equation}
+
+\subsection{Dimesion removal}
+To prevent overfitting and enhance efficiency, we have decided to attempt using PCA for data dimensionality reduction.
+To determine the appropriate number of dimensions, we created a figure in which 
+The x-axis represents the number of selected dimensions, and the y-axis represents the percentage of information represented after selecting the current number of dimensions.
+\begin{figure}
+  \centering
+  \fbox{\includegraphics[width=.4\linewidth]{pca.png}}
+  \caption{ dimension vs percentage of info..}
+\end{figure}
+from the figure, we couldn't find a turning point where there is sufficient information at the point. Beyond this point, there is no significant increase in the amount of information
+In summary, we are unable to perform dimensionality reduction on the data.
+
+\subsection{SVM}
+The final dual formulation of kernel svm can be represented by 
+\begin{equation}
+  \max_\lambda-\frac{1}{2}\sum_i\sum_j\lambda_i\lambda_jy_iy_jK(x_i,x_j)
+\end{equation}
+We tried 4 different kernels in our project, they are
+\begin{itemize}
+  \item linear: $K(x,y) = x^Ty$
+  \item poly: $K(x,y) = (\gamma (x^Ty)+r)^d$
+  \item sigmoid: $K(x,y) = tanh((x^Ty)+r)$
+  \item  $K(x,y) = e^{-\gamma ||x-y||^2}, \gamma>0$
+\end{itemize}
+Also, we test different values for the penalty term $C$ in the original problem
+\begin{equation}
+  \min_{\omega,b,\epsilon} \frac{1}{2}\omega^T\omega + C\sum_i^n\epsilon_i
+\end{equation} 
+\section{Resuts}
+\subsection{All attributes}
+
+see Table [\ref{all}]
+\begin{table}
+  \caption{All attributes}
+  \label{all}
+  \centering
+  \begin{tabular}{llll}
+    \toprule
+    \cmidrule(r){1-2}
+    Kernel     & Train Accuracy   & Time consumption  & Test Accuracy  \\
+    \midrule
+    RBF & 0.734047  & 30.857661 &   0.317003   \\
+    Poly     & 0.987855 & 35.146751 &  0.316042    \\
+    Linear     & 0.475504	& 25.300210      & 0.310279  \\
+    Sigmoif & 0.365377 & 25.245560 & 0.306916\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Extraversion vs. Introversion}
+see Table [\ref{IE}]
+
+\begin{table}
+  \caption{IE}
+  \label{IE}
+  \centering
+  \begin{tabular}{llll}
+    \toprule
+    \cmidrule(r){1-2}
+    Kernel     & Train Accuracy   & Time consumption  & Test Accuracy  \\
+    \midrule
+    RBF & 0.838617  & 24.255259 &   0.770893   \\
+    Poly     & 0.991149 & 26.795339 &  0.769933    \\
+    Linear     & 0.770893	& 16.092506      & 0.770413  \\
+    Sigmoif & 0.757102 & 7.945040 & 0.770413\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\subsection{Sensing  vs. Intuition }
+
+see Table [\ref{NS}]
+
+\begin{table}
+  \caption{NS}
+  \label{NS}
+  \centering
+  \begin{tabular}{llll}
+    \toprule
+    \cmidrule(r){1-2}
+    Kernel     & Train Accuracy   & Time consumption  & Test Accuracy  \\
+    \midrule
+    RBF & 0.870111  & 21.805165 &   0.770413   \\
+    Poly     & 0.998353 & 23.301729 &  0.768012    \\
+    Linear     & 0.862907	& 13.397481      & 0.770413  \\
+    Sigmoif & 0.862495 & 6.643756 & 0.770413\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Thinking  vs. Feeling }
+see Table [\ref{TF}]
+
+\begin{table}
+  \caption{TF}
+  \label{TF}
+  \centering
+  \begin{tabular}{llll}
+    \toprule
+    \cmidrule(r){1-2}
+    Kernel     & Train Accuracy   & Time consumption  & Test Accuracy  \\
+    \midrule
+    RBF & 0.931247	  & 23.654586 &   0.710855   \\
+    Poly     & 0.994648 & 28.503457 &  0.695485    \\
+    Linear     & 0.782627	& 13.486006      & 0.709414  \\
+    Sigmoif & 0.695760 & 16.708707 & 0.695965\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Judging  vs. Perceiving }
+
+see Table [\ref{JP}]
+
+\begin{table}
+  \caption{JP}
+  \label{JP}
+  \centering
+  \begin{tabular}{llll}
+    \toprule
+    \cmidrule(r){1-2}
+    Kernel     & Train Accuracy   & Time consumption  & Test Accuracy  \\
+    \midrule
+    RBF & 0.898312	  & 25.711215 &   0.645053  \\
+    Poly     & 0.994236 & 31.332261 &  0.645053    \\
+    Linear     & 0.703993	& 14.384366      & 0.643132  \\
+    Sigmoif & 0.611980 & 15.768533 & 0.640250\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{different penalty term on linear kernel}
+we also tried different $C$ from 0 to 1 to improve the accuracy, see figure \ref{fig:C}
+\begin{figure}
+  
+  \centering
+  \fbox{\includegraphics[width=.4\linewidth]{c.png}}
+  \caption{ C value vs. Accuracy}
+  \label{fig:C}
+\end{figure} 
+\subsection{Conclusion}
+SVMs are not performing very well on this job
+
 \section{Based on letters}
 As mentioned in the proposal, for each row (anonymous individual) there was a personality type made up of four attributes and a certain number of columns with each column containing a whole or part of a twitter post. The first objective was to combine all these columns into one so that there was just one column containing all the posts for each individual. The second objective was to split up the personality type into four separate columns where each column represented an attribute. For example, if an individual was labeled as IFSP, then this column would be split into four attributes where the first attribute would be labeled as I, the second attribute labeled as F, etc. These transformations were done in Excel.\\
 For the first part of our research project, it wanted to be determined if there was an association between the average of different letters and the individual’s specific attribute type. To see if there was an association, the frequency of each letter was found for each row (individual). Since, each individual varied on the number of letters used for all of their posts, the average was then calculated for each letter frequency. For example, if an individual used a total of 20000 characters and used the letter ‘a’ in 1000 instances, then there would be a score of .05 (instances/ total \# of characters). After, the average was calculated for each letter for each individual, then this new dataset was split into four datasets where each dataset concentrated on a specific attribute (I vs E, F vs T, etc.). This part of the project was done in Python.
@@ -144,7 +296,34 @@ The specific process started with using just one dataset with the second attribu
 Kmeans was then used for each dataset with a certain number of means (but the same) to cluster both data frames. After adding a cluster group column in each data frame, each row (in each data frame) was labeled with its corresponding group number. Each data frame, was then sorted in ascending order based on its cluster group number. A representative was then chosen from each group from each data frame. This representative was chosen by being first the first entry for each group. All the representatives were then put into a training set and the rest of the entries were put in a test set. Each set was then randomly permutated and the cluster group column was dropped. The training and test set were then converted to an array so that it was an acceptable form to be used by the linear perceptron model from the Sci-kit Learn package. The training set was used to train this model and then the test set was used to measure its accuracy.
 
 \subsection{letters result}
+See figure\ref{fig:letter}\\
 The accuracy was measured using a different number of training ‘representatives’. This number was only changed a few times (so there were only a few accuracy scores) but the accuracy did not get above 55\%. This process was rudimentary since it did not find the ‘best’ representative of the group. In other words, it did not find the group member with the lowest average mean. At this time, it is also uncertain how 70\% was even achieved in the initial perceptron process (MATLAB). These questions still need to be investigated. However, it was concluded that looking at frequency averages of letters did not provide a significant way of labeling each attribute. Therefore, the next portion of the project was dedicated to investigating the words used instead of the frequency averages of the letters.
+
+\begin{figure}
+  
+  \centering
+  \fbox{\includegraphics[width=.5\linewidth]{letter.png}}
+  \caption{ for each attribute}
+  \label{fig:letter}
+\end{figure} 
+
+\subsection{Observation \& conclusion}
+The accuracy is misleading:
+\begin{itemize}
+  \item Consider the trait pair with highest accuracy (N/S)
+  \item There were 5988 N’s and 952 S’s
+  \item Algorithm could have guessed N for all samples
+  \item Accuracy $= 5988/6940 = 86.2\%$
+\end{itemize}
+Similarly, if algorithm guessed ‘dominant’ trait for other sets:
+\begin{itemize}
+  \item $I\/E \rightarrow 77.1\%$
+  \item $T\/F \rightarrow 54.5\%$
+  \item $P\/J \rightarrow 60.2\%$
+\end{itemize}
+
+Therefore, it was concluded that the kernel svm model and the other classification models were NOT accurate in predicting personality traits based on letter frequency average
+
 % Please read the instructions below carefully and follow them faithfully. \textbf{Important:} This year the checklist will be submitted separately from the main paper in OpenReview, please review it well ahead of the submission deadline: \url{https://neurips.cc/public/guides/PaperChecklist}.
 
 

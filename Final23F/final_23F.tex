@@ -83,29 +83,99 @@ Consider the following problem:
 \min_{\beta} \|\vy-\mX\beta\|^2+\lambda[\alpha\|\beta\|^2_2+(1-\alpha)\|\beta\|_1].
 \end{equation}
 \begin{enumerate}
-	\item Show the objective can be reformulated into a lasso problem, with revised $\hat{\mX}, \hat{\vy}$.
+	\item Show the objective can be reformulated into a lasso problem, with revised 
+	$\hat{\mX}, \hat{\vy}$.\\
+	\\Assume we can find
+	\begin{align*}
+		\|\hat{\vy}-\hat{\mX}\beta\|^2 &= \|\vy-\mX\beta\|^2+\lambda\alpha\|\beta\|^2_2\\
+		\implies \|\hat{\vy}\|^2 - 2\hat{\vy}^T\hat{\mX}\beta + \|\hat{\mX}\beta\|^2 &= \|\vy\|^2 - 2vy^T\mX\beta\ + 
+		\underbrace{\|\mX\beta\|^2 + \lambda\alpha\|\beta\|^2_2}_{\text{combine these 2 together as }\hat{\mX}}\\
+		\implies \hat{\mX} &=  \begin{bmatrix}
+			\mX\\
+			\sqrt{\lambda\alpha}\vct{I}
+			\end{bmatrix}\\
+			\hat{\vy} &= \begin{bmatrix}
+				\vy\\
+				0
+				\end{bmatrix}
+	\end{align*}
+
 	\item If $\alpha=1/2,\lambda=1$, please derive the closed-form solution by making use of alternating minimization that each time we fix the rest by optimizing one single element in $\beta$. You need randomly generate $\mX, \vy$ and initialize  $\beta_0$, and show the objective decreases monotonically with updates.
+	
+	\begin{align*}
+		&\min_{\beta} \frac{1}{2} \|\hat{\vy}-\hat{\mX\beta}\|^2+\lambda(1-\alpha)\|\beta\|_1\\
+		\text{when we try to optimize } \beta_i\\ 
+		&\implies  \min_{\beta_i} \frac{1}{2}\|\hat{\vy}- \sum_{j\neq i}\hat{\vx_j}\beta_j-\hat{\vx_i}\beta_i\|^2+\lambda(1-\alpha)|\beta_i|\\
+		\text{Set } \Delta_i = \hat{\vy}- \sum_{j\neq i}\hat{\vx_j}\beta_j 
+		&\implies  \min_{\beta_i} \frac{1}{2}\|\hat{\vx_i}\beta_i-\Delta_i\|^2+\lambda(1-\alpha)|\beta_i|\\
+		&\implies \beta_i = 
+		\left\{ \begin{aligned} 
+			&\frac{\langle\hat{\vx_i},\Delta_i\rangle-\lambda(1-\alpha)}{\|\hat{\vx_i}\|^2}\text{, if } \langle\hat{\vx_i},\Delta_i\rangle>\lambda(1-\alpha)\\
+			&\frac{\langle\hat{\vx_i},\Delta_i\rangle+\lambda(1-\alpha)}{\|\hat{\vx_i}\|^2}\text{, if } \langle\hat{\vx_i},\Delta_i\rangle<-\lambda(1-\alpha)\\
+			&0 \text{, otherwise}\\ 
+		  \end{aligned} \right.
+	\end{align*}
+	See Figure \ref{fig:Q1_2}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.5\linewidth]{Q1_2.png}
+		\caption{Q1.2}
+		\label{fig:Q1_2}
+	\end{figure}
+
 \end{enumerate}
+	
 
 \newpage
 \section*{Problem 2 [10 pts]}
-\begin{itemize}
+\begin{enumerate}
 	\item For PCA, the loading vectors can be directly computed from the $q$ columns of  $\mU$ where  $[\mU,\mS,\mU]=svd(\mX^T\mX)$, please show that any $[\pm\vu_1,\pm\vu_2,\dots,\pm\vu_q]$ will be equivalent to $[\vu_1,\vu_2,\dots,\vu_q]$ in terms of the same variance while satisfying the orthonormality constraint. This demonstrates that if the function is nonconvex, it may have various optimal solutions, which is different from (non-trivial) convex function.
+	\begin{enumerate}
+		\item For orthonormality 
+		\begin{align*}
+			\text{When } i\neq j, \langle\pm\vu_i,\pm\vu_j\rangle = \pm  \langle\vu_i,vu_j\rangle = 0
+		\end{align*}
+		\item For variance
+		\begin{align*}
+			\|\mX\vu_i\|^2 &= \vu_i^T\mX^T\mX\vu_i \text{, s.t. }\|\vu_i\|^2=1\\
+			&=trace(\vu_i^T\mX^T\mX\vu_i) = trace((-\vu_i)^T\mX^T\mX(-\vu_i))\\
+			& = \|\mX(-\vu_i)\|^2
+		\end{align*}
+	\end{enumerate}
 	\item Use the fact that $vec(\mA\mX\mB)=(\mB^T\otimes\mA)vec(\mX)$ to find the best solution to $\min\limits_{\mX} \|\mA\mX\mB-\mY\|_F^2$, where $\mA\in\R^{m\times p}, \mX\in\R^{p\times q}, \mB\in\R^{q\times n}, \mY\in\R^{m\times n}$.
-\end{itemize}
 
+	\begin{align*}
+		\min\limits_{\mX} \|\mA\mX\mB-\mY\|_F^2 &= \min\limits_{\mX} \|vec(\mA\mX\mB)-vec(\mY)\|_2^2\\
+		& = \min\limits_{\mX} \|(\mB^T\otimes\mA)vec(\mX)-vec(\mY)\|_2^2\\
+		\text{According to the regression model: } & \min_\vx \|\mA\vx-\vy\|^2_2, \vx^* = (\mA^T\mA)^{-1}\mA^T\vy\\
+		\implies vec(\mX^*) &= ((\mB^T\otimes\mA)^T(\mB^T\otimes\mA))^{-1}(\mB^T\otimes\mA)^Tvec(\mY), 
+	\end{align*}
 
+\end{enumerate}
 \newpage
 
 \section*{Problem 3 [30 pts]}
 Please find \textit{USArrests} dataset online and 
-\begin{itemize}
+\begin{enumerate}
 	\item Implement your own program to reproduce the image on page 16/26 of  Dimensionality Reduction slides on Canvas.
+	\begin{itemize}
+		\item Fig see figure \ref{fig:q31}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=.8\linewidth]{Q3_1.png}}
+			\caption{USArrtests}
+			\label{fig:q31}
+		  \end{figure} 
+		\item Code
+		See Code \ref{code:q31}
+		\mfile{Q3_1.py}\label{code:q31}
+	\end{itemize}
+	
 	\item For each state, out of 4 features, please randomly mask one and assume it is missing (therefore you have your own $\Omega$ and $X$), please write a program following what we discussed in class (you may refer to ProximalGradientDescent.pdf on Canvas) to optimize  
 		\begin{equation}
 		\min_{Z} \frac{1}{2}\|P_\Omega(X-Z)\|_F^2+\|Z\|_*
 	\end{equation}
-\end{itemize}
+\end{enumerate}
 
 
 \newpage

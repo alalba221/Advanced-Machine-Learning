@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.26)  11 DEC 2023 09:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.26)  12 DEC 2023 09:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -428,7 +428,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 {c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-<1.png, id=47, 621.522pt x 227.6505pt>
+<1.png, id=95, 621.522pt x 227.6505pt>
 File: 1.png Graphic file (type png)
 <use 1.png>
 Package pdftex.def Info: 1.png  used on input line 114.
@@ -438,46 +438,58 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 114--115
  [][] 
  []
 
-<before.png, id=49, 1350.0036pt x 570.933pt>
+<before.png, id=97, 1350.0036pt x 570.933pt>
 File: before.png Graphic file (type png)
 <use before.png>
 Package pdftex.def Info: before.png  used on input line 126.
-(pdftex.def)             Requested size: 397.48499pt x 168.09273pt.
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 126--127
- [][] 
- []
-
-<after.png, id=50, 1350.0036pt x 570.933pt>
+(pdftex.def)             Requested size: 198.7425pt x 84.042pt.
+<after.png, id=98, 1350.0036pt x 570.933pt>
 File: after.png Graphic file (type png)
 <use after.png>
 Package pdftex.def Info: after.png  used on input line 131.
-(pdftex.def)             Requested size: 397.48499pt x 168.09273pt.
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 131--132
- [][] 
- []
-
+(pdftex.def)             Requested size: 198.7425pt x 84.042pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [2 <./1.png>] [3 <./before.png> <./after.png>] [4] (./neurips_2023.aux)
+ [2 <./1.png>]
+<pca.png, id=105, 395.3169pt x 298.4751pt>
+File: pca.png Graphic file (type png)
+<use pca.png>
+Package pdftex.def Info: pca.png  used on input line 150.
+(pdftex.def)             Requested size: 158.99156pt x 120.04375pt.
+ [3 <./before.png> <./after.png> <./pca.png>]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 163.
+ (c:/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+) [4]
+<c.png, id=140, 408.3255pt x 298.4751pt>
+File: c.png Graphic file (type png)
+<use c.png>
+Package pdftex.def Info: c.png  used on input line 279.
+(pdftex.def)             Requested size: 158.99156pt x 116.21808pt.
+ [5]
+<letter.png, id=148, 549.05125pt x 414.54875pt>
+File: letter.png Graphic file (type png)
+<use letter.png>
+Package pdftex.def Info: letter.png  used on input line 305.
+(pdftex.def)             Requested size: 198.7425pt x 150.05342pt.
+ [6 <./c.png>] [7 <./letter.png (PNG copy)>] (./neurips_2023.aux)
 Package rerunfilecheck Info: File `neurips_2023.out' has not changed.
-(rerunfilecheck)             Checksum: 41E40B4320FD0EA52BFF76F78A29E4BA;1019.
+(rerunfilecheck)             Checksum: A52A21DF38D4029A71F7301DBAE2D4A0;2891.
  ) 
 Here is how much of TeX's memory you used:
- 12578 strings out of 476025
- 199091 string characters out of 5794015
- 1863382 words of memory out of 5000000
- 32690 multiletter control sequences out of 15000+600000
- 543202 words of font info for 153 fonts, out of 8000000 for 9000
+ 12675 strings out of 476025
+ 200316 string characters out of 5794015
+ 1866382 words of memory out of 5000000
+ 32750 multiletter control sequences out of 15000+600000
+ 543572 words of font info for 156 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,76p,1098b,448s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on neurips_2023.pdf (4 pages, 1566909 bytes).
+ 75i,10n,76p,1098b,520s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on neurips_2023.pdf (7 pages, 1709320 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 500000)
- 31824 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 230 PDF objects out of 1000 (max. 8388607)
+ 182 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 33983 words of extra memory for PDF output out of 35830 (max. 10000000)
 
