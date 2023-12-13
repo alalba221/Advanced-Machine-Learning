@@ -728,6 +728,14 @@ INPUT ./Q3_1.py
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT ./Q3_1.py
 INPUT c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+INPUT ./Q4.png
+INPUT ./Q4.png
+INPUT Q4.png
+INPUT ./Q4.png
+INPUT ./Q4.png
+INPUT ./Q4.py
+INPUT ./Q4.py
+INPUT ./Q4.py
 INPUT final_23F.aux
 INPUT ./final_23F.out
 INPUT ./final_23F.out

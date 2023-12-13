@@ -182,7 +182,22 @@ Please find \textit{USArrests} dataset online and
 
 \section*{Problem 4 [15 pts]}
 Please refer to \href{https://shadow-ssml.readthedocs.io/en/latest/examples/halfmoons_example.html}{here} (for Python) or \href{https://github.com/jaejun-yoo/shallow-DANN-two-moon-dataset}{here} (for Matlab) to create a \textit{two (half) moon} dataset. Write your own \textit{spectral clustering} codes to separate the data into two groups with different colors.  You are not a allowed to call the built-in function for Python or Matlab.
+\begin{enumerate}
+	\item Result\\
+		See Figure \ref{fig:Q4}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=.8\linewidth]{Q4.png}}
+			\caption{Q4 Sepctral Clustering}
+			\label{fig:Q4}
+		  \end{figure} 
+	\item Code\\
+	See Code \ref{code:q4}
+	\mfile{Q4.py}\label{code:q4}
+	
+\end{enumerate}
 \newpage
+
 \section*{Problem 5 [35 pts]}
 For Logistic Regression, if the label is $\pm1$, the objective is:
 \begin{equation}
@@ -192,7 +207,7 @@ while if the label is $\{1,0\}$ the objective is:
 \begin{equation}
 	\min_\vw	\sum_{i=1}^{m}log(1+exp(\vw^T\vx_i))-y_i\vw^T\vx_i
 \end{equation}
-\begin{itemize}
+\begin{enumerate}
 	\item Write a program to show that the optimal solutions to the two cases  are the same by making use of gradient descent method where $m=100$ (please carefully choose the stepsize as we discussed in class). You can generate two class samples, one class's label is 1 and the other is -1 or 0 corresponding to the two formulations respectively. You can initialize $\vw$ as $\vzero$.
 	\item Consider the case where class label is $\{1,0\}$ and $P(y=1|\vx,\vw)=\frac{1}{1+exp(-\vw^T\vx)}$, the maximum likelihood function is $p^y(1-p)^{1-y}$, which is equivalent to $\min -ylog(p)-(1-y)log(1-p)$, exactly the binary cross entropy. Please find optimal $p$.
 	\item If we use Mean Square Error instead of cross entropy: $\min \ (y-p)^2$, and assume $y=1$ and our initial weight $\vw$ result in $p$ very close to 0, if we optimize $\vw$ by making use of gradient descent method, what will happen? Convince yourself that it will stuck at initial point and explain briefly why.
@@ -200,7 +215,7 @@ while if the label is $\{1,0\}$ the objective is:
 	\item From now on, let's focus on the first objective where the label is $\pm1$. Please write a program to find the optimal  $\vw$ by using gradient descent method where $m=10K$, the stepsize in this case we set it as $\frac{1}{\|\mX\|_F^2}$ where each column of $\mX$ is $\vx_i$.
 	\item Please write a stochastic gradient descent version for $m=10K$ (you may set the stepsize as $2/(t+1)$ where $t=1,\dots,T$ and $T=100K$) with the final output being $\bar{\vw}=\frac{1}{T}\sum_{t=1}^{T}\frac{2t}{T+1}\vw_t$.  
 	\item Please compare those two methods (gradient descent vs. stochastic gradient descent) for $m=10K$ and $m=100$ by plotting objective changes versus time consumption respectively.
-\end{itemize}
+\end{enumerate}
 
 \newpage
 \section*{Problem 6 [15 pts]}
