@@ -212,16 +212,16 @@ while if the label is $\{1,0\}$ the objective is:
 	\begin{enumerate}
 		
 		\item Convert to Matrix form \\
-		Seperatly convert equations \ref{eq:class0} and  \ref{eq:class1} to Matrix Format
+		Seperatly convert objective equations \ref{eq:class0} and  \ref{eq:class1} to Matrix Format
 		\\
 		For Lable $\{1,0\}$
 		\begin{equation}
-			\min_\vw \mL = \min_\vw -(\mY^T\mX\vw - \mI^Tlog(\mI+exp(\mX\vw)))
+			\mL =  -(\mY^T\mX\vw - \mI^Tlog(\mI+exp(\mX\vw)))
 		\end{equation}
 
 		For Lable $\{1,-1\}$
 		\begin{equation}
-			\min_\vw \mL = \min_\vw \mI^Tlog(\mI+exp(-\mY^T\mX\vw ))
+			 \mL = \mI^Tlog(\mI+exp(-\mY^T\mX\vw ))
 		\end{equation}
 		where, 
 		$\mI \in \mathbb{R}^{m\times 1}$ and all elements are $1$s
