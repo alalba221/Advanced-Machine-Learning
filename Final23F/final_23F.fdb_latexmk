@@ -1,11 +1,11 @@
 # Fdb version 4
-["pdflatex"] 1702495505 "c:/study/Advanced machine learning/Advanced-Machine-Learning/Final23F/final_23F.tex" "final_23F.pdf" "final_23F" 1702495506 0
+["pdflatex"] 1702658635 "c:/study/Advanced machine learning/Advanced-Machine-Learning/Final23F/final_23F.tex" "final_23F.pdf" "final_23F" 1702658636 0
   "Q1_2.png" 1702393446 9367 56c0793ef8fbeb8dde7cc8507ed6aab8 ""
   "Q3_1.png" 1702405852 60070 f1aa9caf5894cfc434a3bb52f9c2553d ""
   "Q3_1.py" 1702406407 1334 bf65979604f9ef4e3d28a6cce0358454 ""
   "Q4.png" 1702495198 53577 2235325ffbd5d38f19ab6c865ac7aed9 ""
-  "Q4.py" 1702495323 3844 08c4d2efa30b68abd7794380862abb69 ""
-  "c:/study/Advanced machine learning/Advanced-Machine-Learning/Final23F/final_23F.tex" 1702495504 10810 43e172f5d74def80d106b39cab56d254 ""
+  "Q4.py" 1702500222 3862 aff821a5455ae8c8920457f16596b055 ""
+  "c:/study/Advanced machine learning/Advanced-Machine-Learning/Final23F/final_23F.tex" 1702658634 12659 0ffbe474866127ad621d9abcfccf9503 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1695735066 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1695735422 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1695735270 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -127,9 +127,9 @@
   "c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1695737018 4662804 27f73c2f767ae4579fe38abe9088e726 ""
   "c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1695737218 7883441 b592d1aac4845baf30166f5dd3faeba5 ""
   "c:/texlive/2023/texmf.cnf" 1695736994 713 e69b156964470283e0530f5060668171 ""
-  "final_23F.aux" 1702495506 1201 5bd72ac767e03f97a84095fce8347d83 "pdflatex"
-  "final_23F.out" 1702495505 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "final_23F.tex" 1702495504 10810 43e172f5d74def80d106b39cab56d254 ""
+  "final_23F.aux" 1702658636 1333 a232498e91c501569ca131d5e506cd30 "pdflatex"
+  "final_23F.out" 1702658636 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "final_23F.tex" 1702658634 12659 0ffbe474866127ad621d9abcfccf9503 ""
   (generated)
   "final_23F.aux"
   "final_23F.log"

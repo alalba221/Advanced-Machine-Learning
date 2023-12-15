@@ -50,7 +50,7 @@
 \def \vphi {\vct{\phi}}
 \def \vmu {\vct{\mu}}
 \def \R {\mathbb{R}}
-
+\def\dif{\mathop{}\!\mathrm{d}}
 %\newcommand{\st}{\operatorname*{\ subject\ to\ }}
 \usepackage{algorithm,algpseudocode}
 \usepackage{xspace}
@@ -200,15 +200,63 @@ Please refer to \href{https://shadow-ssml.readthedocs.io/en/latest/examples/half
 
 \section*{Problem 5 [35 pts]}
 For Logistic Regression, if the label is $\pm1$, the objective is:
-\begin{equation}
+\begin{equation}\label{eq:class1}
 \min_\vw	\sum_{i=1}^{m}log(1+exp(-y_i\vw^T\vx_i))
 \end{equation}
 while if the label is $\{1,0\}$ the objective is:
-\begin{equation}
+\begin{equation}\label{eq:class0}
 	\min_\vw	\sum_{i=1}^{m}log(1+exp(\vw^T\vx_i))-y_i\vw^T\vx_i
 \end{equation}
 \begin{enumerate}
 	\item Write a program to show that the optimal solutions to the two cases  are the same by making use of gradient descent method where $m=100$ (please carefully choose the stepsize as we discussed in class). You can generate two class samples, one class's label is 1 and the other is -1 or 0 corresponding to the two formulations respectively. You can initialize $\vw$ as $\vzero$.
+	\begin{enumerate}
+		
+		\item Convert to Matrix form \\
+		Seperatly convert equations \ref{eq:class0} and  \ref{eq:class1} to Matrix Format
+		\\
+		For Lable $\{1,0\}$
+		\begin{equation}
+			\min_\vw \mL = \min_\vw -(\mY^T\mX\vw - \mI^Tlog(\mI+exp(\mX\vw)))
+		\end{equation}
+
+		For Lable $\{1,-1\}$
+		\begin{equation}
+			\min_\vw \mL = \min_\vw \mI^Tlog(\mI+exp(-\mY^T\mX\vw ))
+		\end{equation}
+		where, 
+		$\mI \in \mathbb{R}^{m\times 1}$ and all elements are $1$s
+		\item Gradient\\
+		Firstly, we express the sigmoid function as 
+		\begin{equation}
+			h_{\vw}(\mZ) = \frac{1}{1+exp(-\mZ\vw)}
+		\end{equation}
+
+		For Lable $\{1,0\}$, the derivitive can be easily get from slides
+		\begin{equation}
+			\frac{\partial \mL}{\partial \vw} = \mX^T(h_{\vw}(\mX)-\mY)
+		\end{equation}
+
+		For Lable $\{1,-1\}$
+		\begin{align*}
+			\dif\mL(\vw) &= \dif\mI^T log(\mI+exp(-\mY^T\mX\vw )) + \mI^T \dif log(\mI+exp(-\mY^T\mX\vw ))\\
+					&= \mI^T \dif log(\mI+exp(-\mY^T\mX\vw ))\\
+					& = \mI^T\left( \frac{1}{\mI+exp(-\mY^T\mX\vw )}\odot \dif \left(\mI+exp(-\mY^T\mX\vw)\right)\right)\\
+					& = \left( \mI\odot \frac{1}{\mI+exp(-\mY^T\mX\vw )} \right)^T\dif(\mI+exp(-\mY^T\mX\vw ))\\
+					& = \left( \mI\odot \frac{1}{\mI+exp(-\mY^T\mX\vw )} \right)^T \left( exp(-\mY^T\mX\vw)\odot\dif (-\mY^T\mX\vw ) \right)\\
+					& = \left( \mI\odot \frac{1}{\mI+exp(-\mY^T\mX\vw )}\odot exp(-\mY^T\mX\vw)\right)^T\dif (-\mY^T\mX\vw )\\
+					& = - \left( \mI\odot \frac{1}{\mI+exp(-\mY^T\mX\vw )}\odot exp(-\mY^T\mX\vw)\right)^T\mY^T\mX\dif \vw \\
+					& = - h_{\vw}\left( -\mY^T\mX\right)\mY^T\mX\dif\vw
+		\end{align*}
+		For above we get 
+		\begin{equation}
+			\frac{\partial \mL}{\partial \vw} = - h_{\vw}\left( -\mY^T\mX\right)\mY^T\mX\
+		\end{equation}
+
+		\item StepSize
+		\\
+		\item  
+
+	\end{enumerate}
 	\item Consider the case where class label is $\{1,0\}$ and $P(y=1|\vx,\vw)=\frac{1}{1+exp(-\vw^T\vx)}$, the maximum likelihood function is $p^y(1-p)^{1-y}$, which is equivalent to $\min -ylog(p)-(1-y)log(1-p)$, exactly the binary cross entropy. Please find optimal $p$.
 	\item If we use Mean Square Error instead of cross entropy: $\min \ (y-p)^2$, and assume $y=1$ and our initial weight $\vw$ result in $p$ very close to 0, if we optimize $\vw$ by making use of gradient descent method, what will happen? Convince yourself that it will stuck at initial point and explain briefly why.
 	\item For the second objective where the label is $\{1,0\}$, implement Newton method (with backtracking line search if necessary) where $m=100$.  Compare with gradient descent method and plot objective versus time consumption in one figure to observe which is faster.

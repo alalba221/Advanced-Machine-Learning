@@ -11,6 +11,7 @@ n_samples = 1000  # number of samples to generate
 noise = 0.05  # noise to add to sample locations
 X, y = datasets.make_moons(n_samples=n_samples, noise=noise)
 
+
 class my_kmeans:
     def __init__(self, clusers=2):
         self.k = clusers
@@ -105,7 +106,7 @@ def Distance(X):
             S[j][i] = S[i][j]
     return S
 
-k=2
+clusters = 2
 
 Similarity = Distance(X)
 Adjacent = myKNN(Similarity, k=5)
@@ -113,7 +114,7 @@ Laplacian = calLaplacianMatrix(Adjacent)
 x, V = np.linalg.eig(Laplacian)
 x = zip(x, range(len(x)))
 x = sorted(x, key=lambda x:x[0])
-H = np.vstack([V[:,i] for (v, i) in x[:k]]).T
+H = np.vstack([V[:,i] for (v, i) in x[:clusters]]).T
 result = my_kmeans(2).fit(H)
 plt.title('spectral cluster result')
 plt.scatter(X[:,0], X[:,1],marker='o',c=result)
