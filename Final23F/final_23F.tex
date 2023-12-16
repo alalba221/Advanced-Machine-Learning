@@ -77,7 +77,7 @@
 \begin{document}
 \maketitle
 
-\section*{Problem 1 [15 pts]}
+\section{Problem 1 [15 pts]}
 Consider the following problem:
 \begin{equation}
 \min_{\beta} \|\vy-\mX\beta\|^2+\lambda[\alpha\|\beta\|^2_2+(1-\alpha)\|\beta\|_1].
@@ -101,33 +101,36 @@ Consider the following problem:
 	\end{align*}
 
 	\item If $\alpha=1/2,\lambda=1$, please derive the closed-form solution by making use of alternating minimization that each time we fix the rest by optimizing one single element in $\beta$. You need randomly generate $\mX, \vy$ and initialize  $\beta_0$, and show the objective decreases monotonically with updates.
+		\begin{enumerate} 
 	
-	\begin{align*}
-		&\min_{\beta} \frac{1}{2} \|\hat{\vy}-\hat{\mX\beta}\|^2+\lambda(1-\alpha)\|\beta\|_1\\
-		\text{when we try to optimize } \beta_i\\ 
-		&\implies  \min_{\beta_i} \frac{1}{2}\|\hat{\vy}- \sum_{j\neq i}\hat{\vx_j}\beta_j-\hat{\vx_i}\beta_i\|^2+\lambda(1-\alpha)|\beta_i|\\
-		\text{Set } \Delta_i = \hat{\vy}- \sum_{j\neq i}\hat{\vx_j}\beta_j 
-		&\implies  \min_{\beta_i} \frac{1}{2}\|\hat{\vx_i}\beta_i-\Delta_i\|^2+\lambda(1-\alpha)|\beta_i|\\
-		&\implies \beta_i = 
-		\left\{ \begin{aligned} 
-			&\frac{\langle\hat{\vx_i},\Delta_i\rangle-\lambda(1-\alpha)}{\|\hat{\vx_i}\|^2}\text{, if } \langle\hat{\vx_i},\Delta_i\rangle>\lambda(1-\alpha)\\
-			&\frac{\langle\hat{\vx_i},\Delta_i\rangle+\lambda(1-\alpha)}{\|\hat{\vx_i}\|^2}\text{, if } \langle\hat{\vx_i},\Delta_i\rangle<-\lambda(1-\alpha)\\
-			&0 \text{, otherwise}\\ 
-		  \end{aligned} \right.
-	\end{align*}
-	See Figure \ref{fig:Q1_2}
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=0.5\linewidth]{Q1_2.png}
-		\caption{Q1.2}
-		\label{fig:Q1_2}
-	\end{figure}
-
+		\item \begin{align*}
+			&\min_{\beta} \frac{1}{2} \|\hat{\vy}-\hat{\mX\beta}\|^2+\lambda(1-\alpha)\|\beta\|_1\\
+			\text{when we try to optimize } \beta_i\\ 
+			&\implies  \min_{\beta_i} \frac{1}{2}\|\hat{\vy}- \sum_{j\neq i}\hat{\vx_j}\beta_j-\hat{\vx_i}\beta_i\|^2+\lambda(1-\alpha)|\beta_i|\\
+			\text{Set } \Delta_i = \hat{\vy}- \sum_{j\neq i}\hat{\vx_j}\beta_j 
+			&\implies  \min_{\beta_i} \frac{1}{2}\|\hat{\vx_i}\beta_i-\Delta_i\|^2+\lambda(1-\alpha)|\beta_i|\\
+			&\implies \beta_i = 
+			\left\{ \begin{aligned} 
+				&\frac{\langle\hat{\vx_i},\Delta_i\rangle-\lambda(1-\alpha)}{\|\hat{\vx_i}\|^2}\text{, if } \langle\hat{\vx_i},\Delta_i\rangle>\lambda(1-\alpha)\\
+				&\frac{\langle\hat{\vx_i},\Delta_i\rangle+\lambda(1-\alpha)}{\|\hat{\vx_i}\|^2}\text{, if } \langle\hat{\vx_i},\Delta_i\rangle<-\lambda(1-\alpha)\\
+				&0 \text{, otherwise}\\ 
+			\end{aligned} \right.
+		\end{align*}
+		\item See Figure \ref{fig:Q1_2}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.5\linewidth]{Q1_2.png}
+			\caption{Q1.2}
+			\label{fig:Q1_2}
+		\end{figure}
+		\item Code \ref{code:q12}
+		
+	\end{enumerate}
 \end{enumerate}
 	
 
 \newpage
-\section*{Problem 2 [10 pts]}
+\section{Problem 2 [10 pts]}
 \begin{enumerate}
 	\item For PCA, the loading vectors can be directly computed from the $q$ columns of  $\mU$ where  $[\mU,\mS,\mU]=svd(\mX^T\mX)$, please show that any $[\pm\vu_1,\pm\vu_2,\dots,\pm\vu_q]$ will be equivalent to $[\vu_1,\vu_2,\dots,\vu_q]$ in terms of the same variance while satisfying the orthonormality constraint. This demonstrates that if the function is nonconvex, it may have various optimal solutions, which is different from (non-trivial) convex function.
 	\begin{enumerate}
@@ -154,13 +157,13 @@ Consider the following problem:
 \end{enumerate}
 \newpage
 
-\section*{Problem 3 [30 pts]}
+\section{Problem 3 [30 pts]}
 Please find \textit{USArrests} dataset online and 
 \begin{enumerate}
 	\item Implement your own program to reproduce the image on page 16/26 of  Dimensionality Reduction slides on Canvas.
 	\begin{itemize}
 		\item Fig see figure \ref{fig:q31}
-		\begin{figure}
+		\begin{figure}[h!]
 			\centering
 			\fbox{\includegraphics[width=.8\linewidth]{Q3_1.png}}
 			\caption{USArrtests}
@@ -168,7 +171,7 @@ Please find \textit{USArrests} dataset online and
 		  \end{figure} 
 		\item Code
 		See Code \ref{code:q31}
-		\mfile{Q3_1.py}\label{code:q31}
+		%\mfile{Q3_1.py}\label{code:q31}
 	\end{itemize}
 	
 	\item For each state, out of 4 features, please randomly mask one and assume it is missing (therefore you have your own $\Omega$ and $X$), please write a program following what we discussed in class (you may refer to ProximalGradientDescent.pdf on Canvas) to optimize  
@@ -180,12 +183,12 @@ Please find \textit{USArrests} dataset online and
 
 \newpage
 
-\section*{Problem 4 [15 pts]}
+\section{Problem 4 [15 pts]}
 Please refer to \href{https://shadow-ssml.readthedocs.io/en/latest/examples/halfmoons_example.html}{here} (for Python) or \href{https://github.com/jaejun-yoo/shallow-DANN-two-moon-dataset}{here} (for Matlab) to create a \textit{two (half) moon} dataset. Write your own \textit{spectral clustering} codes to separate the data into two groups with different colors.  You are not a allowed to call the built-in function for Python or Matlab.
 \begin{enumerate}
 	\item Result\\
 		See Figure \ref{fig:Q4}
-		\begin{figure}
+		\begin{figure}[h!]
 			\centering
 			\fbox{\includegraphics[width=.8\linewidth]{Q4.png}}
 			\caption{Q4 Sepctral Clustering}
@@ -193,12 +196,12 @@ Please refer to \href{https://shadow-ssml.readthedocs.io/en/latest/examples/half
 		  \end{figure} 
 	\item Code\\
 	See Code \ref{code:q4}
-	\mfile{Q4.py}\label{code:q4}
+	%\mfile{Q4.py}\label{code:q4}
 	
 \end{enumerate}
 \newpage
 
-\section*{Problem 5 [35 pts]}
+\section{Problem 5 [35 pts]}
 For Logistic Regression, if the label is $\pm1$, the objective is:
 \begin{equation}\label{eq:class1}
 \min_\vw	\sum_{i=1}^{m}log(1+exp(-y_i\vw^T\vx_i))
@@ -216,15 +219,33 @@ while if the label is $\{1,0\}$ the objective is:
 		\\
 		For Lable $\{1,0\}$
 		\begin{equation}
-			\mL =  -(\mY^T\mX\vw - \mI^Tlog(\mI+exp(\mX\vw)))
+			\mL_{\{1,0\}} =  -(\vy^T\mX\vw - \mI^Tlog(\mI+exp(\mX\vw)))
 		\end{equation}
 
 		For Lable $\{1,-1\}$
 		\begin{equation}
-			 \mL = \mI^Tlog(\mI+exp(-\mY^T\mX\vw ))
+			\mL_{\{1,-1\}} = \mI^Tlog(\mI+exp(-(\mY\odot\mX)\vw ))
 		\end{equation}
 		where, 
 		$\mI \in \mathbb{R}^{m\times 1}$ and all elements are $1$s
+		and 
+		$$ \mY = \underbrace{\left[\vy,\cdots, \vy\right]}_{\# features + 1},\ 
+		\mX =\left[ 
+			\begin{bmatrix}
+			1 \\
+			\vx_1
+			\end{bmatrix}	
+			\begin{bmatrix}
+				1 \\
+				\vx_2
+			\end{bmatrix}
+			\cdots
+			\begin{bmatrix}
+				1 \\
+				\vx_m
+			\end{bmatrix}
+			\right]^T 
+		$$
 		\item Gradient\\
 		Firstly, we express the sigmoid function as 
 		\begin{equation}
@@ -233,40 +254,235 @@ while if the label is $\{1,0\}$ the objective is:
 
 		For Lable $\{1,0\}$, the derivitive can be easily get from slides
 		\begin{equation}
-			\frac{\partial \mL}{\partial \vw} = \mX^T(h_{\vw}(\mX)-\mY)
+			\frac{\partial \mL_{\{1,0\}}}{\partial \vw} = \mX^T(h_{\vw}(\mX)-\mY)
 		\end{equation}
-
+ 
 		For Lable $\{1,-1\}$
 		\begin{align*}
-			\dif\mL(\vw) &= \dif\mI^T log(\mI+exp(-\mY^T\mX\vw )) + \mI^T \dif log(\mI+exp(-\mY^T\mX\vw ))\\
-					&= \mI^T \dif log(\mI+exp(-\mY^T\mX\vw ))\\
-					& = \mI^T\left( \frac{1}{\mI+exp(-\mY^T\mX\vw )}\odot \dif \left(\mI+exp(-\mY^T\mX\vw)\right)\right)\\
-					& = \left( \mI\odot \frac{1}{\mI+exp(-\mY^T\mX\vw )} \right)^T\dif(\mI+exp(-\mY^T\mX\vw ))\\
-					& = \left( \mI\odot \frac{1}{\mI+exp(-\mY^T\mX\vw )} \right)^T \left( exp(-\mY^T\mX\vw)\odot\dif (-\mY^T\mX\vw ) \right)\\
-					& = \left( \mI\odot \frac{1}{\mI+exp(-\mY^T\mX\vw )}\odot exp(-\mY^T\mX\vw)\right)^T\dif (-\mY^T\mX\vw )\\
-					& = - \left( \mI\odot \frac{1}{\mI+exp(-\mY^T\mX\vw )}\odot exp(-\mY^T\mX\vw)\right)^T\mY^T\mX\dif \vw \\
-					& = - h_{\vw}\left( -\mY^T\mX\right)\mY^T\mX\dif\vw
+			\dif\mL(\vw) &= \dif\mI^T log(\mI+exp(-(\mY\odot\mX)\vw )) + \mI^T \dif log(\mI+exp(-(\mY\odot\mX)\vw ))\\
+					&= \mI^T \dif log(\mI+exp(-(\mY\odot\mX)\vw ))\\
+					& = \mI^T\left( \frac{1}{\mI+exp(-(\mY\odot\mX)\vw )}\odot \dif \left(\mI+exp(-(\mY\odot\mX)\vw)\right)\right)\\
+					& = \left( \mI\odot \frac{1}{\mI+exp(-(\mY\odot\mX)vw )} \right)^T\dif(\mI+exp(-(\mY\odot\mX)vw ))\\
+					& = \left( \mI\odot \frac{1}{\mI+exp(-(\mY\odot\mX)vw )} \right)^T \left( exp(-(\mY\odot\mX)\vw)\odot\dif (-(\mY\odot\mX)\vw ) \right)\\
+					& = \left( \mI\odot \frac{1}{\mI+exp(-(\mY\odot\mX)vw )}\odot exp(-(\mY\odot\mX)\vw)\right)^T\dif (-(\mY\odot\mX)\vw )\\
+					& = - \left( \mI\odot \frac{1}{\mI+exp(-(\mY\odot\mX)vw )}\odot exp(-(\mY\odot\mX)\vw)\right)^T(\mY\odot\mX)\dif \vw \\
+					& = - \left(\mI-h_{\vw}\left(\mY\odot\mX\right)\right)^T(\mY\odot\mX)\dif\vw
 		\end{align*}
-		For above we get 
+		from above we get, for Lable $\{1,-1\}$
 		\begin{equation}
-			\frac{\partial \mL}{\partial \vw} = - h_{\vw}\left( -\mY^T\mX\right)\mY^T\mX\
+			\frac{\partial \mL_{\{1,-1\}}}{\partial \vw} = - (\mY\odot\mX)^T \left(\mI-h_{\vw}\left(\mY\odot\mX\right)\right)
 		\end{equation}
 
 		\item StepSize
 		\\
-		\item  
-
+		The Hessian matrix will change with each iteration, unlike Least Squares which remains same. for convenience, I picked a 
+		fix value $\alpha = 0.0001$ as the stepsize 
+		\item  Figure
+		See Figue(\ref{fig:q51})\\
+		from Figue(\ref{fig:q51}), We can tell that values of 2 objective functions are the same with each iteration,
+		which mean the $\vw$s are also same with each other.\\
+		After $50k$ iterations, $\vw$ values are 
+		$$\vw_{\{0,1\}} = \vw_{\{-1,1\}} = \begin{bmatrix}
+			0.19903285\\
+			0.38847427\\
+			-0.34194269\\
+			-0.72259845
+		\end{bmatrix}$$    
+		\begin{figure}[h!]
+			\centering
+			\fbox{\includegraphics[width=.5\linewidth]{Q5_1.png}}
+			\caption{Q5-1 \{0,1\} vs \{-1,1\}}\label{fig:q51}
+		  \end{figure} 
+		\item Code\\
+		See Code(\ref{code:q51})
+		%\mfile{Q5_1.py}\label{code:q51}
 	\end{enumerate}
 	\item Consider the case where class label is $\{1,0\}$ and $P(y=1|\vx,\vw)=\frac{1}{1+exp(-\vw^T\vx)}$, the maximum likelihood function is $p^y(1-p)^{1-y}$, which is equivalent to $\min -ylog(p)-(1-y)log(1-p)$, exactly the binary cross entropy. Please find optimal $p$.
+	\begin{align*}
+		\frac{\partial \left(-ylog(p)-(1-y)log(1-p)\right)}{\partial p} = 0\\
+		\implies -\frac{y}{p} + \frac{1-y}{1-p} =0\\
+		\implies p=y
+	\end{align*}
+	
 	\item If we use Mean Square Error instead of cross entropy: $\min \ (y-p)^2$, and assume $y=1$ and our initial weight $\vw$ result in $p$ very close to 0, if we optimize $\vw$ by making use of gradient descent method, what will happen? Convince yourself that it will stuck at initial point and explain briefly why.
+	\\
+	\newline
+	Since $$p = \frac{1}{1+exp(-\vw^T\vx)}$$
+	If we use MSE, then the Gradient will be
+	\begin{align}
+		\frac{\partial \mL}{\vw} &= -2\left(y- p\right)\frac{\partial p}{\partial exp(-\vw^T\vx)}\frac{\partial exp(-\vw^T\vx)}{\partial \vw} \notag\\
+		&=2\left(y- p\right) \frac{1}{ (1+exp(-\vw^T\vx))^2}\frac{\partial exp(-\vw^T\vx)}{\partial \vw}\notag\\
+		&=2\left(y- p\right) \frac{exp(-\vw^T\vx)}{ (1+exp(-\vw^T\vx))^2}\frac{-\vw^T\vx}{\partial \vw}\notag\\
+		&=2\left(y- p\right)\times p\times (1-p)\times\frac{\partial-\vw^T\vx}{\partial \vw}\notag
+	\end{align}
+	which tells us either $p\rightarrow 0$ or $p\rightarrow 1$, the gradient $\frac{\partial \mL}{\vw}$ will become $0$,
+	in our case, initial $\vw$ makes $p\rightarrow 0$ then the gradient for the first iteration is $0$m it will be stuck at the initial point
+	
 	\item For the second objective where the label is $\{1,0\}$, implement Newton method (with backtracking line search if necessary) where $m=100$.  Compare with gradient descent method and plot objective versus time consumption in one figure to observe which is faster.
+	\begin{align}
+		\mtx{H} &= \mX^T\mtx{W}\mX\\
+		\vw^{t+1} &= \vw^t-\alpha\mtx{H}^{-1}\frac{\partial \mL_{\{1,0\}}}{\partial \vw}
+	\end{align}
+
+	where $\alpha$ is the stepsize, and
+	$$ \mtx{W} =  \begin{bmatrix}
+		h_{\vw}(\vx_1)(1-h_{\vw}(\vx_1)) & & \\
+		& \ddots & \\
+		& & h_{\vw}(\vx_m)(1-h_{\vw}(\vx_m))
+	  \end{bmatrix} = Diag\left(h_{\vw}(\mX)\odot(\mI-h_{\vw}(\mX))\right)
+	  $$
+	\begin{enumerate}
+		\item Figure
+		See Figure (\ref{fig:q54}) 
+		\begin{figure}[h]
+			\centering
+			\fbox{\includegraphics[width=.5\linewidth]{Q5_4.png}}
+			\caption{Q5-4 Newton vs GD}\label{fig:q54}
+		  \end{figure} 
+
+		  From Figure (\ref{fig:q54}) , we can tell GD is faster
+		\item Code
+		See Code(\ref{code:q54})
+		%\mfile{Q5_4.py} \label{code:q54}
+	\end{enumerate}
 	\item From now on, let's focus on the first objective where the label is $\pm1$. Please write a program to find the optimal  $\vw$ by using gradient descent method where $m=10K$, the stepsize in this case we set it as $\frac{1}{\|\mX\|_F^2}$ where each column of $\mX$ is $\vx_i$.
+	\begin{enumerate}
+		\item Figure\\
+		See Fig(\ref{fig:q55}) 
+		\begin{figure}[h]
+			\centering
+			\fbox{\includegraphics[width=.5\linewidth]{Q5_5.png}}
+			\caption{Q5-5 stepsize is frobenius norm }\label{fig:q55}
+		  \end{figure} 
+		\item Code\\
+		See Code\ref{code:q55}
+		
+	\end{enumerate}
 	\item Please write a stochastic gradient descent version for $m=10K$ (you may set the stepsize as $2/(t+1)$ where $t=1,\dots,T$ and $T=100K$) with the final output being $\bar{\vw}=\frac{1}{T}\sum_{t=1}^{T}\frac{2t}{T+1}\vw_t$.  
+	\begin{enumerate}
+		\item To make it timing friendly, I set the stepsize$=0.01$ and the number of iteration is $50$
+		\item Code
+		See Code \ref{code:q56}
+		\item Result
+		$$\vw= \begin{bmatrix}
+			-1.7870602\\
+			0.52960937\\
+			0.59429952\\
+			-0.21795669
+		\end{bmatrix}$$    
+	\end{enumerate}
+	 
+	 
 	\item Please compare those two methods (gradient descent vs. stochastic gradient descent) for $m=10K$ and $m=100$ by plotting objective changes versus time consumption respectively.
+		\\
+		\newline
+		To make it converge faster, instead of using only one sample to update $\vw$, 
+		I randomly choose $batchsize$ samples to update $\vw$.
+		\begin{enumerate}
+			\item $m=100$\\
+			See Figure(\ref{fig:q57100})
+			\begin{figure}[h]
+				\centering
+				\fbox{\includegraphics[width=.5\linewidth]{Q5_7_100.png}}
+				\caption{Q5-7 , m=100 }\label{fig:q57100}
+			  \end{figure} 
+		
+
+			\item $m=10K$\\
+			See Figure(\ref{fig:q5710k})
+			\begin{figure}[h]
+				\centering
+				\fbox{\includegraphics[width=.5\linewidth]{Q5_7_10k_5k.png}}
+				\caption{Q5-7, m=10k }\label{fig:q5710k}
+			  \end{figure} 
+
+			\item Code\\
+			See Code\ref{code:q57}
+		\end{enumerate}
+
 \end{enumerate}
 
 \newpage
-\section*{Problem 6 [15 pts]}
+\section{Problem 6 [15 pts]}
 We consider multiclass SVM based on binary SVM. There are two options we can consider: one versus one and one versus all. Assume we have 4 classes data where each class has 2 samples: class 1 $\{\{1,0\},\{2,0\}\}$, class 2 $\{\{0,-1\},\{0,-2\}\}$, class 3 $\{\{-1,0\},\{-2,0\}\}$ and class 4 $\{\{0,1\},\{0,2\}\}$. Now use the two options (one versus one and one versus all) respectively to determine the predicted class of new data $\{0.25,1.5\}$. You should explicitly find and write each hyperplane to get full credits.
+\subsection{One vs. One}
+\begin{enumerate}
+	\item 1 vs 2
+	$$y=-x$$
+	\item 1 vs 3
+	$$y=0$$
+	\item 1 vs 4
+	$$y=x$$
+	\item 2 vs 3
+	$$y=x$$
+	\item 2 vs 4
+	$$x=0$$
+	\item 3 vs 4
+	$$y=-x$$
+\end{enumerate}
 
+\subsection{one vs. all}
+
+assume hyperplane is $w_0x+w_1y+b=0$
+
+\begin{enumerate}
+	\item 1 vs $\hat{1}$
+	\begin{equation}
+		\left\{
+		\begin{aligned}
+			\min\frac{1}{2} \|\vw\|^2\\
+			s.t.\\
+			w_0+b\geq 1\\
+			2w_0+b\geq 1\\
+			w_0-b\geq 1\\
+			2w_0-b\geq 1\\
+			w_1-b\geq 1\\
+			2w_1-b\geq 1\\
+			-w_1-b\geq 1\\
+			-2w_1-b\geq 1\\
+		\end{aligned}
+		\right.
+	\end{equation}
+
+	\begin{align*}
+		\mL = \frac{1}{2}(w_0^2+w_1^2) + 
+		\lambda_1(1-w_0-b)+ \lambda_2(1-2w_0-b)+\\
+		\lambda_3(1-w_0+b)+\lambda_4(1-2w_0+b)+\\
+		\lambda_5(1-w_1+b)+\lambda_6(1-2w_1+b)+\\
+		\lambda_7(1+w_1+b)+\lambda_8(1+2w_1+b)
+	\end{align*}
+
+	using KKT we get
+	\begin{equation}
+		\left\{
+		\begin{aligned}
+			asdasd
+		\end{aligned}
+		\right.
+	\end{equation}
+	
+	\item 
+\end{enumerate}
+
+\section{Codes}
+
+\subsection{Code for section 1.2}\label{code:q12}
+\mfile{Q1_2.m}
+
+\subsection{Code for section 3.1}\label{code:q31}
+\mfile{Q3_1.py}
+
+\subsection{Code for section 4}\label{code:q4}
+\mfile{Q4.py}
+
+
+\subsection{Code for section 5.1}\label{code:q51}
+\mfile{Q5_1.py}
+\subsection{Code for section 5.5}\label{code:q55}
+\mfile{Q5_5.py}
+\subsection{Code for section 5.6}\label{code:q56}
+\mfile{Q5_6.py}
+
+\subsection{Code for section 5.7}\label{code:q57}
+\mfile{Q5_7.py}
 \end{document}
